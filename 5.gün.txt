@@ -1,0 +1,121 @@
+webfor pentester example'lar sqlmap komutlarý
+sqlsqlmap attack
+dirbuster ile sýzma resim yükleme yeni payload yükleme 
+webshells = resim yerine gönderilen sheller ile sýzma sýzma karþý tarafdan port açma 
+tortarayýcan gizlenerek web sýzma iþlemlemleri yapýlabilir.
+sqlmap ile sistemdeki db gördük sql injection ile sistem ki kullanýcý bilgilerine eriþtik
+sqlmap ile shell gönderme mevcut .
+-----------------------------------------------------------------------------------------------------
+wget ile sýzdýgýmýz bilgisayardan belge alma ve gönderme iþlemleri yapýlabilir.
+wget yazarýz göndermek istedigimiz ip adresini yazarýz : atarýz portu yazarýz / ile dosyadý yazar alýr veya göndeririz
+python -m SimpleHTTPServer açarýz.
+Burda kendimizden veya karþýdan istedigimiz alýp kendimize gönderebilirz.
+Görselleri aldým windows yakalamalardan resimlere bakabilirsin.
+--------------------------------------------------------------------------------------------------------
+Ayný þekilde sisteme sýzmayý nc komutlarý ile de yapabiliriz.
+python yerine apache serverýda açabiliriz.
+-------------------------------------------------------------------------------------------------------
+sqlmap -u url sql injection tespiti
+sqlmap -u url -p name ile sdece istedigimiz yere sql injection yaparýz.
+sqlmap -u url --dump-all ile herþeyi görebiliriz
+sqlmap -r HTTP istegi http istegi üzeerinden sql injection bulur
+Ýnjection türleri.
+----------------------------------------------------------------------------------------------------
+nc -lvp 8888 port dinleme komutu
+owasp xenotix xss exploit framework 
+armitage ile görünür attack mevcut.hail mary otomatik exploit leri deniyor.
+----------------------------------------------------------------------------------------------------
+add host diyip saldýrýcagýmýz makineyi ekliyoruz.
+taramasýný istiyoruz.ekledigimiz makineyi.Port taramasýný tamamlýyor.
+hail mary diyerekte automatic saldýrý gerçekleþtiriyor.
+-------------------------------------------------------------------------------------------------------------
+sqlmap-dirbuster-armitage-metasploit-nc(netcat)-wordlist.burpsuite-pyton simple httpserver. falan filen
+----------------------------------------------------------------------------------------------------------------
+Directory travelsa gördük siteden rakibin bilgisayarýna eriþip sistem dosyalarýný okuma.
+-----------------------------------------------------------------------------------------------
+Owasp Xenotix kullanýmý.= çok etkili bir program . kullanýþlý
+-----------------------------------------------------------------------------------------------------------
+Owasp bý burdan deneyebiliriz. q;;acunetix diye bir tool var zafiyetli bir uygulama test yapmamýz için 
+--------------------------------------------------------------------------------------
+Get request fuzzer urlye saldýrýcamýz yeri yazýyoruz [x] yazýmp vlues yerine bunu yazýcaz.
+Scanner butona týkla Get reques ile xss arýyazcaz.
+Url kýsmýna nerde xxs bulcaz adresi yazýyoruz. kutucuk içerisindeki yeri nerde arýcaksak oraya yapýþtýrýyoruz.
+orda saniye kýsmýný ayarlýyoruz.kendi içinde payloadlarý kullanarak zafiyetleri arýyorz.
+------------------------------------------------------------------------------------------
+Sosyal mühendislik testide mevcut program içinde = Xss exploitation kýsmýnda.
+---------------------------------------------------------------------------------------------------------------------
+linux ile ; ile komutlarý birleþtirebiliryoruz.
+--------------------------------------------------------------------------------------------------------------------------------
+Commands injection = pingden sonra ; ile istedigimiz komutu çagýrma.
+---------------------------------------------------------------------------------------------------------------------------------------
+netsparker bakýcaz.policy oluþturuyoruz.my/sql veritabaný yönetimi ögren.
+siteye login olmuþsunuzdur daha önce cokiie oluþmuþtur.cookie veriyoruz kendi otomatik login oluyor.
+wireshark ile paket analizi ögren.
+log outa basýnca siteden çýkýcak o yüzden bu butonlarý görürsen týklama diyoruz.
+þu metootlarý kullanma diye biliyoruz.Ýstersek extra sitelerin linklerini vereiliyoruz.
+extra link de ekliye biliyoruz.asýýl olayý bunun formdan gleiyor
+custom script denen bi olay var.2 li genereta element diyoruz. sonra sayfayý yüklücek
+ardýndan yüklüyüp gödnerecek.test yaparken sessionu kaybedebilirim.bu þekilde admin panelinide aramýþ olcaz.
+iki aþama 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+php shell blackark
+xss beef ile zafiyet sömürme.
+netsparker kullanmayý ögrendik
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+lfý
+directory traversal
+file ýnclude
+xxs payloads
+commands innjection
+ldap attacks
+file upload
+xml attacks
+---------------------------------------------------------------------------------------------------------------------------------------------
+ýnsecure direct object references = saldýrganýn uygulamadaki zafiyeti kullanarak yetkisizce sistem
+kaynaklarýna eriþmesi üzerine kuruludur. Çok önemli bir zaafiyet.
+Finansal bilgileri görme.
+Security misconfiguration = güvenlik ayarlrýnýn yanlýþ yapýlandýrýlmasýyla oluþan zafiyetler.
+Csrf= Saldýrganýn kurban üzerinden uygulamaya zararl istekler yapmasý üzerine kuruludur.
+Saldýrgann bu atak baþarýlý olur ve yeterli veriyi elde edebilirse
+kullanýcýlarýn hesaplarýna eriþebilir.Kredi kartýndan para alma gibi kritik sorunlar oluþturan bir zafiyet
+---------------------------------------------------------------------------------------------------------------------------------------------
+((*Bilgi toplama --> Zafiyet Keþfi --> Ýstismar Etme --> Yetki Yükseltme --> Ýzleri Silme*))
+   Aþamalarý sýrasý ile gerçekleþtiriyoruz.Süreçi = Raporlama içerigi = tespit edile cihazlar - topoloji - zafiyetelr - sömürme yöntemleri ;
+--------------------------------------------------------------------------------------------------------------------------------------------- 
+Parola kýrma saldýrýlarý
+Sosyal mühendislik saldýrýlarý 
+---------------------------------------------------------------------------------------------------------------------------------------------
+Sosyal mühendislik saldýrýlarý.
+Sistem yerine insanlarý hackleme 
+Kiþileri sosyal yollardan psikolojik olarak manipüle ederek yetkili olunmayan
+bilgilere eriþim giriþimidir.
+Ýnsanlar güvenmeye/inanmaya ikna olmaya meyillidir.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Bir senaryo oluþturup, hedeflere bu senaryoyo yaþatarak,panik heyecan korku duygularu ile
+istenilen aksiyonu elde etmek.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Phishing = E-posta yoluyla kullanýcý bilgilerine eriþmek baþka bir adrese göndererek zararlý yazýlým yüklemek.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Vishing - SMishing = Telefon yoluyla bilgi edinmek.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Hedef Odaklý Phishing = APT saldýrýlarý , kiþiyi profilleyip güven saglýyýp ona göre saldýrý yapma.
+url crayz - domain
+---------------------------------------------------------------------------------------------------------------------------------------------
+Social Engineering  Toolkit- Set = sosyal mühendislik saldýrýlarý yapma için kullanýlar bir toolkit
+Github,trustedsec/social-engineer-toolkit. get ile githubdan komut satýrý ile çekebiilriz.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Parola kýrma saldýrýlarý.
+Parola Tahmini Brute Force ataklar.
+Parola Kýrma Çalýnan hashi kýrmaya yönelik ataklar
+Saldýrý ipuçlarý ayný parola kullanýmý tespit edilen parolaýn dierine giriþ saglamasý
+Brute force saldýrlarý
+Kaba kuvvet
+Otomatize saldýrý
+Wordlist on-the-fly
+cupp kullan.
+cupp -i parametresi ile kullanýcý bilgileri atayarak þifre kýrmaya yarýyyor.
+Crunch = parolo kýrma uygulamasý.
+John the ripper = Medusa = xHydra = Hashcat 
+Metasploit  ssh a login olmaya çalýþmýþtýk 
+mimikatz = 
+patator = brute force ataklar için birebir. 

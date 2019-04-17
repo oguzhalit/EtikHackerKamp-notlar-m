@@ -1,0 +1,149 @@
+burpsuite'e giriþ
+--------------------------------------------------------------------------------------------
+firefox ag, proyx ayarlarý yapýlýr.
+web for penterster'kur aç. ifconfig ile inetaddr adresini firefox'a yaz.
+burp suiteden proxy'ye gel.
+Ordan gönderdigimiz istegin dönütünü görebiliyoruz.
+-----------------------------------------------------------------------------------------
+Http temelleri.
+Kulanýcý ve Web uygulamasýnýn iletiþimi http protokulana göre 
+gerçekleþir.
+Default olarak 80 portununda çalýþýr.
+Plaintext = gönderilen herþey þifresiz olarak gider.
+Durum kontrolu yapýlamz = her istekte yetkilimiyiz degilmiyiz dosya göndermemiz gerek.
+Cooki ve session kullanýlýyor bu yüzden.(Durum kontollü yapýlamadýgý için)
+Ýstek cevap þeklinde çalýþýr.
+Cevaplarda durum kodlarý kullanýlýr.
+-------------------------------------------------------------------------------------------
+Sunucuya istekte bulundugumuz zaman sunucu bize ;
+*Bilgi kodu 1xx; 	*Yönlendirme 3xx;		*Server taraflý bir hata 5xx;
+*Baþarlý 2xx;		*Kullanýcý taraflý bir hata 4xx;
+---------------------------------------------------------------------------------------------
+Örnek bir kaç istek bulunma þekillerini araþtýr.
+GET - SET - POST - HEAD - OPTIONS vb
+User-Agent,Accept,Cookie,Connection,Host
+----------------------------------------------------------------------------------------------
+GET=bilgi göndermiyor.istek'de bulunuyor.
+HEAD = sadece bilgi toplamak için
+GET = boþa trafik üretmemek için head kullanýlabilir.
+Options = 
+PUT = sunucuya bi dosya yükleyebiliyoruz.zararlý kodlar atabiliriz.snucya.
+----------------------------------------------------------------------------------------------
+GET = sayfayý çagýrýr ve parametreleri query string ile iletir
+Url de çalýþýr.
+POST = get ile ayný iþlemi yapar, ama tarayýcýnýn url barýnda gözükmez.
+OPIONS = hangi metotlarý destekledigi hakkýnda bilgi verir
+HTTP temelleri.
+HOST parametresi ile hangi sayfaya baglanýlacagný seçeriz
+Cookie = oturum bilgileri browser tarafýnda saklanýr. oturumu tanýmlayan degerlerdir.
+Kullanýcýnýn bilgilerini barýndýrýr. HTTP baþlýgý ile alýnýr ve yollanýr. 
+Cookie sunucu tarafýndan tanýmlanýr.
+session cookie benzer çalýþma sistemi farklýlaklýrý var ama araþtýr.
+Burp Suite Ögren - Araþtýr.
+leakbase.pw  >leakedsource > ele geçirilen sistemlerin bilgilerini tutan database
+-------------------------------------------------------------------------------------------------------------
+Bilgi toplama ve zafiyet keþfi
+*Burp Suite | *DNSenum -Fierce - aquatone | *Dirbuster = dizin tespiti için
+*Wfuzz	    | *Nikto = http testleri 	  | *Netsparker 	  | *Wpscan = wordpress sistem tramasý yapýyor	
+*Sqlmap = sql injection zafiyetini sömürmek için kullanýlýr.
+-------------------------------------------------------------------------------------------------------------------------
+Goole hacking DB örnekleri = araþtýr ögren.
+theharvestar = kullanmayý detaylý þekilde ögren.
+Bilgi toplama araçlarýný  detaylý þekilde araþtýr/öðren.
+Toolarý göndericek hoca hepsine tek tek bak.
+-----------------------------------------------------------------------------------------------------------------------------------
+Aktif Bilgi Toplama 
+--------------------------------------------------------------------------------------------
+Burp Suite
+Proxyden dinleyecegimiz yeri ekliyoruz portuyla beraber.Add ile ekleme yapýyoruz.
+SLL sertifakasýný düzenlememiz lazým ki arayý dinleyebilelim.
+Burp a. http : // burp indir firefox ayarlara gir advanced e gel certifaklara gel
+importa gir yükleddigimiz sertifakayý import et.Bütün iþaretlere tik atýyoruz.
+Burp suiteden intercept off yaparsak sitelere gireriz.
+intercept on ken forward diyip siteye girmesi
+drop diye girmemesini yapabiliriz.
+Ters týklayýp send repeater diyip içergi degiþtirip tekrar yollayabiliriz.
+veya site ile bilgleri go diyerek görebiliriz.
+-------------------------------------------------------------------------------------------------------------------------------------------
+Target ile hedef belirleme iþlemlerini gerçekleþtiriyoruz.
+Ýntercept Client Request ile sadece istedigim bilgileri tutabiliyorum.
+Araya girme mantýgýný iyice kavra çok önemli 
+User-Agent tý falanda degiþtirebiliyoruz.Detaylý bir araþtýrma yap o kunuda.
+Match and replace gibi ayarlarla kendimizi android olrak gösterebiliriz.
+Bilgileri BurpSuite ile araya girerek degiþtirebiliyoruz.
+User-Agent a sql-injection zafiyeti eklenebilir.bazý durumlarda.
+Target Sitemapda site dizinleri bilgilerini görebiliyoruz.
+Spider host ile bütün yerlere týkla ve kaydýný buraya al diyebiliyoruz.
+Orda spider status ile detaylarý görebliyoruz. Gidebilecegimiz yerleri belirliyoruz bu þekilde.
+Scope alma alana alýyor sadece bu arayý tarýyor.Gereksiz þeylerin gözükmesini engellemek için.
+Temel kullanýmýný ögrenip kendini geliþtirmen lazým. 
+Remove scope ile girmek istemedigimiz þeyleride çýkarabiliriz.Taramamýzdan.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spider ý requeset headrslarý gezerken bazý sitelerden sadece anroid ios a izin vereiliyor
+User-agent ayarlarýnýn degiþtirlimesi gerekebilir. Otomatik login ekranlarý tararken denemelik
+kullanýcý adý_þifre ekleyebiliyorum.ayný þekilde email içinde geçerli.parola.txt kullanýcý_adý.txt verip denettirebiliriz.
+Scannerda buldugu zafiyetleri listeliyor.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+WEB UYGULAMA GÜVENLÝGÝ
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Girdi noktasý bulmak gerekiyor web uygulamasýnda web tarafýnta nikto var netsparker var bunlar zafiyet taramamýzda lazým olacak þeyler.
+Açýk kaynak web uygulamasý zafiyetlerini bulmamýzý ve sömürmemizi saglayan uygulmalarý araþtýr.
+Repeater - Intruder kullanýmý Sql injection Burpsuiter webpentester exapmle 1
+Intruder attack çok önemli araþtýr.Hashcat 
+github.com/jeanphorn/wordlist = wordlistler.
+decoder = dönüþtürülecek gönderilenleri geri çevirme decode encode.
+comparer= ikii þeyin çýktýsýný karþýlaþtýr demek.
+Extender = bir sürü eklenti mevcut,eklentileri indirip iþe yararlarý ayarlamak lazým araþtýr.
+AuthMatrix bir Extender ekletisi güzel bir eklenti araþtýr.
+Bypass WAF = Extender eklentisi wafflarý atlatmaya çalýþýyor.
+Eklentiler çok gzel hepsini tek tek dene lazým. 
+Zafiyet rapotlamasý yapan eklentiler mevcut.
+Json ekletisi ,yara eklentisi yararlý eklentiler araþtýr.
+Pro versiyonunda simulate manual testing = pentester rahat alsýn diye :D 
+leery u = crackci ii --- web pentesterlarý önemli.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+OWASP TOP 10 =
+internet bilgileri toplayýp zafiyetleri sýnýflandýrýyorlar.en çok çýkan zafiyetleri 
+buluyorlar.
+Ýnjection = araþtýr çok detaylýydý uygulamalý olarak iþledik. web for pentersterden ilerledik.
+----------------------
+java script kodunu kötü iþlemler içinde kullanabiliyoruz. java scpirt kodunun uygulamada 
+çalýþtýrýlmasý.
+xss açýklarýndan faydalýnýrýz
+----------------------------------------------------------------------------------------
+beef-xss active edildi
+sonra beef'e girildi.default beef:beef
+orda hook.js'li kod çok zararlý java kodlarý bulunduran bir sitedir.
+xss nasýl exploit ediliyor iyice kavra.
+link kýsaltmayý ögren.Çok önemli zararlý kodu kýsaltýp zararlý linkler üretebiliriz.
+Bu mantýgý anladýk sonra xss payload.com diye bir site var sitede xss payloadlarý mevcut
+Mesela adamýn klavyeden basdýgý kodlarýn takibini yapan bir js yazabilriz.
+Zararlý kodu alýyoruz apache sunucu içine yerleþtiriyoruz.Keyloger.php adýnda
+bir dosya oluþturup zararlý js kodunu ekliyoruz adresede ip adresini veriyoruz(bu direk apache loglarýna yönlendiricek)
+kaydetip kapatýyoruz.apacheyi açýyoruz.apacheden keylohera atlýyoruz.baþýna <php ?> eklemeyi unutmuyyoruz.
+istek yapýyoruz.adres sonuna istek yapýyoruz.log takibi yapmak için tail -f ile kontrol saglýyoruz bir hata varmý diye.
+log kayýt dosyasýna ulaþýyoruz.php olarak degilde js olarak kaydediyoruz.php simgelerini geri çýkartýyoruz.
+yanlýþ kaydettik.tekrardan ekliyoruz zararlý js kodunu log analizi yapýyoruz tekrar.Keyloger php dosyasý oluþturup get le onu al yazdýr demeliyiz.
+karþýyada linki alýp link kýsaltma yapýyoruz karþýdakine yolluyoruz. 
+-------------------------------------------------------------------------------------------------------
+Beef çalýþtýrma.
+beef-xss yazýyoruz.kali komut terminaline.
+beef:beef diyip login oluyoruz.
+example da þöyle bir kodla buraya sýzarsýn diyor.
+zafiyet buldugumuz yere js kodunu ekilyoruz kendi ip'mizi veriyoruz.
+link kýsaltmalý ile kodu baþkasýna yolluyoruz.
+beef'de kontrollü saglýyoruz.
+locate beef diyer diger sagladýgý zafiyetleri görebiliyoruz.
+beef kullanmayý ögren ayrýntýlý olarak.
+----------------------------------------------------------------------------------------------
+prisma csý sitesinde zafiyet örnekleri mevcut lablarý var.Web for pentester gibi.
+----------------------------------------------------------------------------------------------
+xss in birinci örneginde scprit yazýp çalýþtýrtýk
+xss example 3 örnegi = <scr<script>ipt>DAKA<scr<script>ipt> script komutu silcek
+sildigi için yine script kelimesi oluþacak ve firewall'u atlatmýþ olcaz.
+xss exapmle 2 de büyük küçük farký mevcut.
+[owasp xss yazarak payload lab bulabiliriz OWASP xeonotix framework lab.] = önemli detaylý kullanmayý çöz
+owasp xss xeonotix araþtýr sosyal mühendislik testi de yapýyor.
+brute xss ordan ögrenecek çok þey var = xss cheat falan mevcut.
+knoxss ile = bir çok zafiyet bulunabilir. bu konularý bi araþtýr.
+xss çeþitleri var birde linke týklayanlar zafiyete maruz kalýyor.

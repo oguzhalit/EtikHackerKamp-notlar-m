@@ -1,0 +1,96 @@
+---------------------------------------------------------------------------------------------------------------------------
+I * Pasif Bilgi Toplama * I
+I ------------------------I
+Domain analizi
+Dns analizi
+google hacking db
+geliþtirici siteler
+metadata analizi
+----------------------------------------------------------------------------------------------------------------------------
+ip aralýklarýný bulmak(ripe.net)ýp havuzlarýný kontrol ediyoruz-ping attýgýmýz sitenin döndürdügü ip yi kontrol ediyoruz.
+mail - mail gruplarý bulunur.oltalama saldýrýlarý ile bilgi toplanabilir.
+netname sistemler üzerinden kayýtlý olan grup.bu isimi aratýrsak daha fazla bilgiye ulaþabiliriz.
+lokasyon tespiti yapýlýr.(iplocation.com)
+------------------------------------------------------------------------------------------------------------------------------
+whois kaydý analizi-(who.is)
+burdaki kayýtlarýn nasýl degerlendirilecegi analiz edilir.
+dns kayýtlarýnýnda hangi mail grbu kullanýlýyor.buna göre saldýrý türü belirlenir.
+bu duruma göre nasýl pybass edilir mail sunucu sistemleri araþtýrýlýr.
+-------------------------------------------------------------------------------------------------------------------------------
+whoisology
+baþka bir envantrleri var mý kontrol edilir.
+---------------------------------------------------------------------------------------------------------------------------
+theharvester -d ankaraçedu.tr -b all -l 500
+ile o adrese ait bütün kayýtlarý ip leri ile birlikte görebiliriz.
+----------------------------------------------------------------------------------------------------------------------------
+dns bilgilerini toplama-(robtex)
+subdomainleri - nameserverlarýn ýp adreslerini getiriyor
+ayrý bir kaynak olarak bilgi toplamada kullanýlabilir.
+mail sunucusuna=Mxtoolbox ile bilgi toplama analizlerine devam edilebilir.
+dns sunucusuna=dnsstuff dns sunucusunda zafiyet varmý yokmu 
+-----------------------------------------------------------------------------------------------------------------------------
+dig ile bir domaine ait kayýtlar incelenilerbilir.
+ns-mx-A(alan adý)- vb þeyler hakkýnda bilgiler derlenir.
+cloudflare kullanýmý güvenlik ve hýz saðlar.
+sahte ip adreslerini gösterir cloudflare sayesinde.gerçek ip adresini göstermiyor
+cloudflare ile yanýltýcý þaþýrtmalar yapýlabilir.
+---------------------------------------------------------------------------------------------------------------------------
+dig linux sistemlerde dns kayýtlarýna bakmak için kullanýlýr.
+dig ns zonetranfer.me burdan adresi ögrenip
+(nyksapoolo@gmail.com) notalrý yolla
+dig axfr @adres ile içerden datalarý çýkartýp
+ders domain id yollama-yougetsignal- sitesi ile analiz yapýlabilir ama alakasýz bilgilerde çýkabilir.
+netcraft.com=sunuculara web sitelere belirli dönemlerde analizler yapýyorlar.
+daha önceki tuttugu bilgilerin raporlarý gözükebilir.kullanýdýgý teknolojileri gözükebilir.
+hostig history ile gerçek ip adresi ögrenilebilir.cloudfare koymadan önce ki tarihe bakarak(yani sunucu degiþtirilmediyse)
+---------------------------------------------------------------------------------------------------------------------------
+shodan=shodan ile ping attýgýmýz da aldýgýmýz cevabýn ip ile shodan dan hangi sunucular açýk görüyoruz
+shodan dan hangi bilgilere eriþmek istiyorsak burdan arayarak bilgi toplayabiliriz.bir exploit bulduk diyelim versionu yazdýk
+ve shodan dan bu sunucularý girerek kontrol ve zafiyetler saðlanabilir.
+shodan bilgi toplama konusunda baþarýlý.
+shodan heartbleed search zafiyeti taramasý yapma=
+---------------------------------------------------------------------------------------------------------------------------
+archive.org=geçmiþe ait kayýtlarý tutar.
+eski dökümanlarý bulmamýza yarar.
+çalýþma sistemi hakkýnda bilgi edinebiliriz.
+iki sistem arasýnda ki farklar ile degiþimlerin zafiyeti bulunabilir.
+geçmiþte kullanýlmýþ günümüzde iptal edilmiþ ama arkada planda duran(yani kullanýmý saglanmayan,eski hali) uygulamalar ile sýzma testleri gerçekleþtirilebilir.
+-----------------------------------------------------------------------------------------------------------------------
+have i been pwned=hacklenen email adresleri
+belki ayný þifreyi diger platformlarda kullanmaya devam ediyordur.
+daha önce hacklenen sistemlerde email adresi kayýtlý olup þifresini degiþtirmemiþ olabilir.
+virustotal ile de site analizi yapýlabilir.
+----------------------------------------------------------------------------------------------------------------------------
+I* Geliþtirici siteler *I
+----------------------------------------------------------------------------------------------------------------------------
+alexa
+pastebin
+stackoverflow
+github
+---------------------------------------------------------------------------------------------------------------------------- 
+alexa=internet istatistiklerini tutan bir þirket.
+ne arayarak buraya geliyor.(top keywords from engines) = ordan neler aratýlarak bu sonuca ulaþýlmýþ. atak vektörleri bu
+þekilde geniþletilebilir.baglantý öncesinden nerden gelmiþ.bunlar keþfedilebilir.
+---------------------------------------------------------------------------------------------------------------------------------
+pastebin=hackerlarýn not tutma sistemi.burdan ne gibi datalar çýkarabiliriz.
+burdan hacklenmiþ datalara ulaþabiliriz.zafiyetler hakkýnda bilgi edinebilir.
+burda ki bilgiler kullanýlarak bilgi toplama iþlemi ileri bir seviye ye geçilebilir.
+burda ki bilgilerinde kimin tarafýndan saglandýgýný lokasyonu vs. bulunabilir.
+pastebin benzeri sitelerde mevcut
+-------------------------------------------------------------------------------------------------------------------------------
+stackoverflow=devoloperlarýn ve linuxcularýn biliþimcilerin birbirlerine bilgi paylaþtýgý forum
+burdan kullanýcý adý ve þifre bilgilerine ulaþýlabilir.
+exploit yazarken bir uygulamanýn hata vermesini isteriz ki zafiyet üretmek için bu hatanýn üzerine giderek
+bir zafiyet çýkarabiliriz.stackoverflowdan exploit geliþtirmiþ. bütün stackoverflow un bütün yeni içereklerine bak 
+artýk çalýþmýþyor þu hata mevcut gibi sorular sorulursa bundan bana haberder et diye bir script ile izliyor.
+ordan buldugu hata ve crashler ile yeni exploitler geliþtiriyor.ve 0day oluþturabiliyor.Zafiyeti sömürecek kod oluþturuyor.
+stackoverflow u bu þekilde kullanarak zaafiyet ve exploit oluþturulablir.
+----------------------------------------------------------------------------------------------------------------------------
+github=
+(mhmmdvahit@gmail.com)notlarý yolla.
+----------------------------------------------------------------------------------------------------------------------------
+google hacking DB
+dark kavramý
+filetype: ext: cache: inurl,intitle,intext
+---------------------------------------------------------------------------------------------------------------------------
+google kullanarak elde edilen bilgeler;

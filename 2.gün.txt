@@ -1,0 +1,209 @@
+-----------------------------------------------------------
+TEMEL LÝNUX KOMUTLARI
+-----------------------------------------------------------
+ls=komutu bulundugumuz dizindeki dosyalarý gösterir.
+-l parametsi dosyayý özellikleri ile beraber listeler.
+-a parametsi gizli dosyalarýda gösterir.
+baþýna (.) konan dosya gizli olur.
+man komutu ile  o uygulamanýn nasýl kullanýldýgý hakkýnda bilgi
+edinebiliriz.
+-h parametresi ile anlaþýlabilir boyutlarda yazar
+-t en son degiþtirme zamanýna göre listeler
+----------------------------------------------------------
+help komutu ile de man'a benzer parametreler ile ne iþ
+yapýlýr görebiliriz.
+program --help ile istedigimiz program hakkýnda 
+bilgi alabilriz
+ctrl+shift+c ile kopyalama yapýlabilir.
+ctrl+shift+v ile de yapýþtýrma iþlemi gerçekleþiyor.
+(eger komut ise direkt çalýþtýrýr)
+----------------------------------------------------------
+pwd=þu an bulundugumuz dizinizi gösterir.
+----------------------------------------------------------
+cd=dizin degiþtirmek için kullanýlýr.
+-  parametresi ile bir önce dizine dönülür.
+.. parametresi ile bir üst dizine çýkýlýr.
+cd ../.. iki üst dizin birden atlamak için bu þekildede
+kullanýlabilir.
+~ parametresi ile home dizinine(ana dizine) gider.
+-----------------------------------------------------------
+# komutu root yetkisi ile çalýþtýr demek.man
+-------------------------------------------------------------
+cp=kopyalama iþlemleri gerçekleþtirir.
+cp kopyalanak_dosya kopyalanacak_dosyanýn_yeniadý
+touch ile yeni dosyalar oluþturulur.
+mv taþýnacak_dosya nereye_taþýnacak.
+file komutu ile dosya türü ögrenilebilir.
+mkdir -p a/b/c/ ile iç içe dizin oluþturulabilir.
+cp -r ile iç içe klasörlerin kopyalama iþlemi gerçekleþtirilir.
+----------------------------------------------------------------------------------------------------------
+mkdir=dizin oluþturmak için kullanýlýr.
+ayný isimle dizin oluþturulamaz.
+özyinelemeli dizin oluþturma
+mkdir -p dizin2/dizin3 (dizin 2 içine dizin 3 açar)
+-----------------------------------------------------------------------------------------
+rm=dosya silme iþlemi gerçekleþtirir.
+dizin silme iþlemi için -r parametresi ile gerçekleþtirilir.
+rm dosya_adý ile istenilen dosya silinir.
+rm -r dosya_adý ile dizin silinir.
+----------------------------------------------------------------------------------
+cat=dosya okumaya yarar.dosya içerigini ekrana basar.
+nano=konsol üzerinde çalýþan bir metin editörü.
+echo=ekrana basma veya yönledirme,verilen degeri ekrana yazdýrýr.
+---------------------------------------------------------------------------------------
+>>=sonuna ekler=(echo "Prisma" > dosya_adý)
+>=üzerine yazar=(echo "Prisma" >> dosya_adý)
+cat deneme > örnek = denemenin içindekileri örnek dosyasýnýn
+üzerine yazar.
+cat deneme >> örnek = denemenin içindekileri örnek dosyasýnýn
+sonuna ekler.
+-------------------------------------------------------------------------------------------
+çýktýyý yönlendirme=komut yazýlýr çýktýsý alýnýr, komut tekrar
+yazýlýr > ile komut çýktýsý istedigimiz dosya üzerine yazýlýr.
+cat ile kontrol edilir.
+---------------------------------------------------------------------------------------------------
+ÖRNEKLER
+*masaüstünde klasor1 adýnda dizin oluþtur
+cd Desktop ile masaüstüne ulaþýlýr.
+mkdir klasor1 komutu ile klasor1 oluþturulur.
+*klasor1 dizini içine klasor 2 oluþtur.
+mkdir -p klasor1/klasor2
+*klasor2 dizini altýnda linux.txt diye dosya oluþtur
+touch linux.txt ile 
+*nano ile linux.txt içine adýnýzý yazýnýz.
+nano linux.txt ile dosya açýlýr içerisine isim yazýlýr
+ctrl x ile kaydet çýk iþlemi yapýlýr. yada
+echo "" > linux.txt ile de dosya oluþturulup isim yazdýrýlabilir.
+*linux.txt dosyasýný isim.txt olarak kopyasýný oluþturun
+cp linux.txt isim.txt komutu ile iþlem yapýlýr.
+*klasor2 dizinini klasor3 olarak kopyala
+cd klasor1 e gidilir.cp -r klasor2 klasor3 ile kopyalama yazýlýr.
+yada klasor2 dizininde cp -r ../klasor2/(bir üst dizine çýk klasor2 yi seç) ../klasor3 þeklindede yapýlabilir.
+*klasor2 dizini içersindeki linux.txt yi silin.
+rm linux.txt ile silinir.veya rm klasor2/linux.txt
+---------------------------------------------------------------------------------------------------------------------------------------------
+grep=bir dosya içersindeki kelimeleri seçebiliyoruz.
+grep root /etc/passwd=etc passwd içerisinde root kelimesi barýndýranlarý bana göster.
+grep root /etc/passwd >> birþey.txt aratrgýmýz þeyi biþey.txt içerisine yazdýrýr.
+grep komutu çok kullanýþlý detaylý bir araþtýrma yap
+grep "aranacak_dosya_adý" "dosyanýn_aranacagý_yer"
+-------------------------------------------------------------------------------------------------------------------
+dd if=/dev/zero of=/home/dosya_adý bs=100 count=100 = içi 0 larla dolu data oluþturur.
+dd if=/dev/urandom of=/home/dosya_adý bs=100 count=100 = içi random karakterlele dolu data oluþturut.
+bu datalarý sýkýþtýrma programlarýný karþýlaþtýrmak için oluþturduk
+--------------------------------------------------------------------------------------------------
+|(pipe)=komutlarý birleþtirmek için kullanýlýr.
+Cat /etc/passwd | grep root = etc dizin içindeki passwd dosyasýný yaz içinde root geçenleri göster.
+soldaki komutun çýktýsýný sagdakine gönderir.arama alaný daraltmak için kullanýlýr.
+--------------------------------------------------------------------------------------------------------------
+dosya sýkýþtýma iþlemleri
+üzerinde fazla durmadýk internetten araþtýr.
+-----------------------------------------------------------------------------------------------------------
+ping komutu=ping ping_atýlýacak_ipadresi(veya site ismi)
+-----------------------------------------------------------------------------------------------------------------
+who komutu=þuan sistemte kim var onu gözteriyor
+w komutu ile kimler var kimler yok gözükür.
+'su -'=komutu kullanýcý degiþtirmek için kullanýlýyor.
+uname -a=bilgisayar bilgilerini verir.
+uname -r=kernel sürümünü gösterir
+uname -s=sistem bilgisini gösterir
+wget komutu dosya çekimi iþene yarar.
+-----------------------------------------------------------------------------------------------------------------
+sudo=root yetkisi isteyen iþlemleri gerçekleþtirmek için sudo komutu kullanýlýr.
+whoiam=kimlik bilgisi hakkýnda bilgi verir.
+-------------------------------------------------------------------------------------------------------------------
+.bashrc dosyasý ayarlarý düzenleyerek kýsayol atayarak daha hýzlý iþlemler gerçeklerþtirebiliriz.
+-----------------------------------------------------------------------------------------------------------------
+**Ýzinler**
+3 parçadan oluþur.
+chmod ile izinler degiþtirilebilir.
+chmod un bütün varsayýmlarýný araþtýr.
+---------------------------------------------------------------------------------------------------------------------
+**paket yönetim sistemleri**
+debian temelliler için apt
+centos temelliler için yum
+dpkg=dosyasý ile .deb paketlerinin yüklenmesi ve onlar hakkýnda bilgi almak için kullanýlýr.
+dpkg -l parametresi ile sistemde kurulu paketleri listeler.
+apt autoremove=gereksiz þeyleri silmeye yarar.
+bir paket kurma= dpkg -i /nerde/bu/paketadý.deb
+bir paket silme= dpkg -r paketadý
+apt-get purge gereksiz þeyleri sile ayarlarý günceller.
+apt-get install=indirme iþlemi yapar
+apt-get update=güncelleme iþlemi yapar.
+apt-get upgrade=yükseltme iþlemi ypar.
+apt search = sistemde varmý arama iþlemi yapar.
+apt-cache=aradýgýmýz dosyanýn paket isimlerini getirir.kurmak istedeigimiz paketin adýný hatýrlamadýgýmýz zaman bulmak için iþe yarar.
+apt-get remove=paket silme iþlemi
+-------------------------------------------------------------
+crontab zamanlý görevler atamaya yarar nano /tmp/crontab.
+adduser=kullanýcý ekleme iþlemi yapar
+passwd=parola bilgileri degiþtirmeye yarar.
+deluser=kullanýcý silme iþlemi.
+linux grup yönetimi=üstün körü geçti araþtýr
+log yönetimi=araþtýrma yap.
+tail=komutu ile anlýk olarak son loglarý görebiliriz.
+tail -f= son log kayýtlarýný açar.
+cd /var/log dosyalarý altýndaki klasörler nelerin loglarýný tutuyor kontrol et.
+-------------------------------------------------------------------------------------------
+**að bilgilerini görme**
+ifconfig -a= ip bilgisini görmeye yarar
+route internete hangi ip adresi bilgisi ile çýkýlýyor gözükür.
+vncviewer=uzaktan eriþim baglantýsý kurma
+netstat=anlýk olarak baglantýlarý gösteri(detaylara girmedeik araþtýr)
+ping -c parametsi ile sayý belirleriz o kadar ping atar.
+traceroute = hedefe gidilen yolu gösteriyor.
+tcpdump=paket analizcisi,veri paketlerini incelemeye yarar.
+------------------------------------------------------------------------------------------------------------
+nano,vi,vim text editörleri(araþtýr birini seç)
+vim komut satýrý olarak kendini geliþtireceksen vim kullan
+vi üzerinden bash 'e eriþim saglanabilir.(sýzma testlerinde kulllanýlan bi saldýrý )
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ssh=uzak baglantý kurma iþlemini yapma
+service = servis komutlarýný görmeye yarar.startla baþlar stopla kapatýlý status ile durum kontrol edilir
+yeniden baþlatmak içinde restart 
+putty ile ssh baglantýsý saglanýyor(birçok ayarý var araþtýr)
+ps komutu ve parametreleri araþtýr.
+htop,top gibi görev yönetici sitemler mevcut araþtýr.
+cd /etc/shadow = parolalarýn hash bilgileri tutuluyor.
+-----------------------------------------------------------------------------------------
+** dosya arama toollarý **
+which ls=ls komutu nerde oldugunu buluyoruz
+locate=dosyalarýn nerde oldugunu arýyoruz.kendi database i üzerinden sonuç veriyor.updatedb
+find anlýk olarak arýyor.daha kapsamlý daha yavaþ.çok fazla parametresi var.ögrenmek lazým.
+whereis komutu araþtýr üzerinde fazla durmadýk.
+--------------------------------------------------------------------------------------------------------
+**en çok kullanýlan linux komutlarý**
+/etc/network/interfaces = interfaces dosyasýnda að ayarlarý bulunur.
+/etc/rc = baþlangýçda açýlan dosyalarýn ayarlarýnýn yapýldýgý dosyalar.
+rc.local=üsteki ile ayný.
+more-less=daha fazla,daha az parametleri ile araþtýr.sisteme sýzma iþlemlerinde kullanýlan kod gibi düþün
+tail=en son kayýtlarý(satýrlarý) gösteriyor.bir dosyanýn sondan veya baþtan kaçýncý satýrý istiyorsak getirmesini isteyebilir.
+head=baþtan kayýtlarý getiriyor.üsteki ile ayný sayýlýr
+diff=iki dosya arasýndaki farklarý gösterir(diff kaþýlan karþýlanacak dosya),iþe yarayabilir.
+netstat -antp =anlýk network durumunu gösterir.
+nslookup=network sorgusu yapar.
+nc=netcat arka kapý açmada kullanýlýyor. nc -lvp dinlenecek_port_numarasý
+nc'nin çok güzel özellikleri mevcut parametreleri ile birlikte araþtýr.
+last=sisteme en son kimler baglanmýþ onlarý gösteriyor.loglardan çekiyor bilgiyi
+cal=takvimi gösteriyor,date=tarihi gösteriyor.
+sort=sýralama komutu araþtýr parametreleri ile kullanýlarn bir komut scriptlerde çok iþe yarýyor
+pipe ve grep ile birlikte güçlerini birleþtirirse durdurulamaz bir güç elde edebilir.
+shutdown -h now+ = kapatma komutu
+uptime = sistemi ne kadar ayakta kaldýgýný gösterir
+rmdir=dizin silme komutu
+mkdir=dizin oluþturma komutu
+rm=dosya silme iþlemini gerçekleþtirir.
+mv = dosya taþýma ve isim degiþtirme iþlemleri gerçekleþtirir(araþtýr)
+ln=kýsayol oluþturmak için
+echo=ekrana bastýrma iþlemini gösterir.
+!!=bir önceki komutu çalýþtýr.
+lsblk=sistemde takýlý olan diskler.
+mount=komutu araþtýr.
+chown=dosya sahibini degiþtirir.
+alias=.bashrc komutu içerisinden yeni kýsayol atamalarý yapabiliriz
+crontab -e -l -r=zamanlý görevler ve en çok kullanýlan parametreleri
+ctrl shift c =kopyala
+ctrl shift v =yapýþtýr
+ctrl -R=geriye dönük arama ypar.
+
+-----------------------------------------------------------------------------------------

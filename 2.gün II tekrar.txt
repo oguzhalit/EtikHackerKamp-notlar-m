@@ -1,0 +1,89 @@
+Temel linux bilgisi
+----------------------------------------------------------------------------------
+du komutu=du dizin_adý kullaným þeklidir.Diskte kapladýðý alaný verir.Dizin adý
+belirtilmesse bulundugu dizini verir.ayný zamanda iç içe dizin varsa onlarýda
+gösterir.
+----------------------------------------------------------------------------------
+cat > dosya_adi=dosya oluþturur ve içeriginin yazýlmasýný bekler, içerik 
+yazýldýkdan sonra CTRL+D ile kaydetmemizi saðlar.
+cat dosya_adi=dosya içerigini listeler.
+----------------------------------------------------------------------------------
+rmdir=dizin siler.içi boþ ise
+mkdir=dizin oluþturur.
+touch=dosya oluþturur.
+rm   =dosya siler.
+----------------------------------------------------------------------------------
+find   dosya_adý = Dosya arar. * ve ? iþareti parametreleri kullanýlýr.
+find   dosya_adý -name *conf =sonu conf ile bitenleri
+find   dosya_adý -name *conf*=içinde conf geçenleri
+find   dosya_adý -name  conf*=conf ile baþlayanlarý sýralar.
+locate dosya_adý = Dosya arar.Veritabanýna baglýdýr.Önce updatedb yazýlýr ki 
+veritabaný güncellensin.
+----------------------------------------------------------------------------------
+cp kaynak_dosya/dizin hedef_dosya/dizin=Bir yerdeki dosya/dizin baþka
+bir yere kopyalamaya yarar.istedigimiz yere.
+
+mv kaynak_dosya/dizin hedef_dosya/dizin=Bir yerdeki dosya/dizin baþka
+bir yere taþýr.Ve yeniden adlandýrýr(istersek).
+örn: mv deneme /home/kullanýcý = deneme dosyasýný kullanýcý dizinin içine taþýr.
+mv = dosya ismi degiþtirmede de kullanýlýr.
+örn: mv deneme dene = deneme dosyasýnýn adýný dene olarak degiþtirir.
+mv dosya_adý ../ = bir üst dizine taþýr.
+mv -t Music kullanýcý klasor1 = kullanýcý ve klasor1 dosya/dizinleri music dizini içerisine taþýnýr.
+----------------------------------------------------------------------------------
+nl dosya_adý = Dosya içerigini görüntüleyen görüntülerken satýr
+baþlarýný numaralandýran bir belirteç ekler.
+-----------------------------------------------------------------------------------
+file dosya_adý = Dosya tipini belirtir.
+-----------------------------------------------------------------------------------
+mc = komut satýrýna mc yazarak çalýþtýrýlýr.veya alt+f2 
+Dosya ve dizinlerin yönetimi için geliþtirilmiþ bir yardýmcý programdýr
+-----------------------------------------------------------------------------------
+Sýkýþtýrma Komutlarý
+gzip  dosya_adý/dizin_adý = dosya veya dizini sýkýþtýrýr. dosya.gz olur.
+bzip2 dosya_adý/dizin_adý = dosya veya dizini sýkýþtýrýr. dosya.bz2 olur.
+tar -zcvf dosya_adý/dizin_adý.tar.gz dosya/dizin_adý = dosya veya dizini sýkýþtýrýr. dosya.gz olur.
+Açma komutlarý
+gunzip dosya.gz
+bunzip2 dosya.bz2
+tar -zxvf dosya.gz
+-----------------------------------------------------------------------------------
+useradd kullanýcý_adý = kullanýcý ekler
+passwd kullanýcý_adý = kullanýcý parolasý tanýmlar.veya degiþtirir.
+userdell kullanýcý_adý = kullanýcý hesabýný siler.
+groupadd grup_adi = yeni grup oluþturur.
+groups kullanýcý_adý = kullanýcýnýn ait oldugu gruplarý listeler.
+gpasswd -a kullanýcý_adý grup_adý = Bir gruba kullanýcý ekler.
+gpasswd -d kullanýcý_adý grup_adi = kullanýcýyý gruptan siler.
+------------------------------------------------------------------------------------
+u Sahibi (user), g Grubu (grup), o Digerleri (others) , a Herkes (all)
+3 kaynak vardýr
+	w =yazma(write) 	sayýsal karþýlýgý =4
+	r =okume(read)		sayýsal karþýlýgý =2
+	x =çalýþtýrma(execute)	sayýsal karþýlýgý =1
+Bütün dosyalar için eriþim yetkilerini degiþtiren komut chmod'dur.
+sayýlar degerlerin toplamý ile izinler verilebilir.örn = chmod 700 deneme.txt
+4+2+1 = 7 yani user a tüm yetkiyi verdik. 0 grupda herhangi bir yetki yok. 0 others da herhangi bir yetki yok
+degiþik combinasyonlarla alýþtýrma yapýlabilir.
+--------------------------------------------------------------------------------------------------
+d     I rwx I rwx I rwx I = ls -l ile gözüken bilgiler
+dizin I  u  I  g  I  o  I = karþýlýklarý.
+u sahibi(user), g grubu(grup) ,o diðer(other)
+r=(read)okuma izni, w=(write)yazma izni, x=(execute)çalýþtýrma izni
+chmod u+r sahibine okuma izni ekler.
+chmod g=r grubun izinlerini siler ve salt okunur.
+chmod o-r diðerlerinden okuma iznini kaldýrýr.
++ ekler, -çýkarýr, =degiþtirir.
+--------------------------------------------------------------------------------------------------------
+chown = dosya/dizin sahipliðini deðiþtirmektedir.
+chown kullanýcý_adý dosya/dizin_adi = kullaným þekli
+chgrp = dosya/dizin iliþkili grubun sahipligini degiþtirir.
+chgrp grup_adý dosya/dizin_adi = kullaným þekli
+---------------------------------------------------------------------------------------------------------
+>  = önceki içerigi  siler   yenisini yazar.
+>> = önceki içerigin üzerine ekleme   yapar.
+echo "Merhaba dünya" > deneme  = deneme dosyasýn içerisindekileri siler ve merhaba dünya yazar.
+echo "Merhaba dünya" >> deneme = deneme dosyasýnýn içerigini korur en alta merhaba dünya ekler.
+---------------------------------------------------------------------------------------------------------
+ctrl-u=terminalde yazý satýrýný siler.
+-----------------------------------------------------------------------------------------------------------
